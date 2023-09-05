@@ -21,6 +21,13 @@
             <artifactId>jgoodies-forms</artifactId>
             <version>1.9.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.16.1.1</version>
+        </dependency>
     </dependencies>
 
 </project>
