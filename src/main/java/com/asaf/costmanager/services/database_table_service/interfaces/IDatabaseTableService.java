@@ -9,7 +9,7 @@ public interface IDatabaseTableService<Record> {
 	void createTableIfNotExist() throws CostManagerException;
 	void dropTable() throws CostManagerException;
 	void dropTableIfExist() throws CostManagerException;
-	Record insertRecord(Record record) throws CostManagerException;
+	void insertRecord(Record record) throws CostManagerException;
 	void updateRecord(int id, Record record) throws CostManagerException;
 	Record fetchRecord(int id) throws CostManagerException;
 	List<Record> fetchRecords() throws CostManagerException;

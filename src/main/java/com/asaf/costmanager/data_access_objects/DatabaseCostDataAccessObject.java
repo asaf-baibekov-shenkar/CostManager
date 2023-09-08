@@ -16,9 +16,9 @@ public class DatabaseCostDataAccessObject implements IDataAccessObject<Cost> {
 	}
 	
 	@Override
-	public Cost create(Cost cost) {
+	public void create(Cost cost) {
 		try {
-			return this.costsDatabaseTableService.insertRecord(cost);
+			this.costsDatabaseTableService.insertRecord(cost);
 		} catch (CostManagerException e) {
 			throw new RuntimeException(e);
 		}

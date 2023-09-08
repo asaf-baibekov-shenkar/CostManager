@@ -75,21 +75,24 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 	}
 	
 	@Override
-	public Category insertRecord(Category category) throws CostManagerException {
+	public void insertRecord(Category category) throws CostManagerException {
 		try (
 			Connection conn = this.databaseConnectionService.connectIfNeeded();
 			PreparedStatement ps = conn.prepareStatement(
-				"INSERT INTO categories (name) VALUES (?)"
+				"INSERT INTO categories (name) VALUES (?)", Statement.RETURN_GENERATED_KEYS
 			)
 		) {
 			ps.setString(1, category.getName());
 			ps.executeUpdate();
+			try (ResultSet rs = ps.getGeneratedKeys()) {
+				if (rs.next())
+					category.setId(rs.getInt(1));
+			}
 		} catch (SQLException e) {
 			throw new DatabaseCostManagerException(DatabaseTableErrorType.INSERT_FAILED, "Failed to insert record into categories table", e);
 		} catch (ClassCastException e) {
 			throw new DatabaseCostManagerException(DatabaseTableErrorType.INSERT_FAILED, "Cast exception while inserting record into categories table", e);
 		}
-		return category;
 	}
 	
 	@Override

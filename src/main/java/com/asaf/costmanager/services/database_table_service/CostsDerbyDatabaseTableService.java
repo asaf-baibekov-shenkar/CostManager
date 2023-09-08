@@ -83,7 +83,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 	}
 	
 	@Override
-	public Cost insertRecord(Cost cost) throws CostManagerException {
+	public void insertRecord(Cost cost) throws CostManagerException {
 		try (
 			Connection conn = this.databaseConnectionService.connectIfNeeded();
 			PreparedStatement ps = conn.prepareStatement(
@@ -96,12 +96,13 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 			ps.setString(4, cost.getDescription());
 			ps.setDate(5, new java.sql.Date(cost.getDate().getTime()));
 			ps.executeUpdate();
+			try (ResultSet rs = ps.getGeneratedKeys()) {
+				if (rs.next())
+					cost.setId(rs.getInt(1));
+			}
 		} catch (SQLException e) {
 			throw new DatabaseCostManagerException(DatabaseTableErrorType.INSERT_FAILED, "Failed to insert record into costs table", e);
-		} catch (ClassCastException e) {
-			throw new DatabaseCostManagerException(DatabaseTableErrorType.INSERT_FAILED, "Cast exception while inserting record into costs table", e);
 		}
-		return null;
 	}
 	
 	@Override

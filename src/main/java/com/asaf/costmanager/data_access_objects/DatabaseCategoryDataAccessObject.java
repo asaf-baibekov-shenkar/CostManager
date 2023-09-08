@@ -16,9 +16,9 @@ public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Categ
 	}
 	
 	@Override
-	public Category create(Category category) {
+	public void create(Category category) {
 		try {
-			return this.categoriesDatabaseTableService.insertRecord(category);
+			this.categoriesDatabaseTableService.insertRecord(category);
 		} catch (CostManagerException e) {
 			throw new RuntimeException(e);
 		}
