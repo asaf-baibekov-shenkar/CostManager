@@ -1,0 +1,108 @@
+package com.asaf.costmanager.models;
+
+import java.util.Date;
+
+public class Cost {
+	
+	private int id;
+	
+	private Category category;
+	
+	private double sum;
+	
+	private String currency;
+	
+	private String description;
+	
+	private Date date;
+	
+	public Cost(Category category, double sum, String currency, String description, Date date) {
+		this.id = -1;
+		setCategory(category);
+		setSum(sum);
+		setCurrency(currency);
+		setDescription(description);
+		setDate(date);
+	}
+	
+	public Cost(int id, Category category, double sum, String currency, String description, Date date) {
+		setId(id);
+		setCategory(category);
+		setSum(sum);
+		setCurrency(currency);
+		setDescription(description);
+		setDate(date);
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		if (id < 0)
+			throw new IllegalArgumentException("ID cannot be negative");
+		this.id = id;
+	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	
+	public void setCategory(Category category) {
+		if (category == null)
+			throw new IllegalArgumentException("Category cannot be null or empty");
+		this.category = category;
+	}
+	
+	public double getSum() {
+		return sum;
+	}
+	
+	public void setSum(double sum) {
+		if (sum < 0)
+			throw new IllegalArgumentException("Sum cannot be negative");
+		this.sum = sum;
+	}
+	
+	public String getCurrency() {
+		return currency;
+	}
+	
+	public void setCurrency(String currency) {
+		if (currency == null || currency.trim().isEmpty())
+			throw new IllegalArgumentException("Currency cannot be null or empty");
+		this.currency = currency;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		if (description == null || description.trim().isEmpty())
+			throw new IllegalArgumentException("Description cannot be null or empty");
+		this.description = description;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public void setDate(Date date) {
+		if (date == null)
+			throw new IllegalArgumentException("Date cannot be null");
+		this.date = date;
+	}
+	
+	@Override
+	public String toString() {
+		return "Cost{" +
+				       "id=" + id +
+				       ", category='" + category + '\'' +
+				       ", sum=" + sum +
+				       ", currency='" + currency + '\'' +
+				       ", description='" + description + '\'' +
+				       ", date=" + date +
+				       '}';
+	}
+}
