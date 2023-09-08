@@ -8,7 +8,7 @@ public class Cost {
 	
 	private Category category;
 	
-	private double sum;
+	private double total_cost;
 	
 	private String currency;
 	
@@ -16,19 +16,19 @@ public class Cost {
 	
 	private Date date;
 	
-	public Cost(Category category, double sum, String currency, String description, Date date) {
+	public Cost(Category category, double total_cost, String currency, String description, Date date) {
 		this.id = -1;
 		setCategory(category);
-		setSum(sum);
+		setTotalCost(total_cost);
 		setCurrency(currency);
 		setDescription(description);
 		setDate(date);
 	}
 	
-	public Cost(int id, Category category, double sum, String currency, String description, Date date) {
+	public Cost(int id, Category category, double total_cost, String currency, String description, Date date) {
 		setId(id);
 		setCategory(category);
-		setSum(sum);
+		setTotalCost(total_cost);
 		setCurrency(currency);
 		setDescription(description);
 		setDate(date);
@@ -54,14 +54,14 @@ public class Cost {
 		this.category = category;
 	}
 	
-	public double getSum() {
-		return sum;
+	public double getTotalCost() {
+		return total_cost;
 	}
 	
-	public void setSum(double sum) {
-		if (sum < 0)
+	public void setTotalCost(double total_cost) {
+		if (total_cost < 0)
 			throw new IllegalArgumentException("Sum cannot be negative");
-		this.sum = sum;
+		this.total_cost = total_cost;
 	}
 	
 	public String getCurrency() {
@@ -98,8 +98,8 @@ public class Cost {
 	public String toString() {
 		return "Cost{" +
 				       "id=" + id +
-				       ", category='" + category + '\'' +
-				       ", sum=" + sum +
+				       ", category=" + category +
+				       ", total_cost=" + total_cost +
 				       ", currency='" + currency + '\'' +
 				       ", description='" + description + '\'' +
 				       ", date=" + date +

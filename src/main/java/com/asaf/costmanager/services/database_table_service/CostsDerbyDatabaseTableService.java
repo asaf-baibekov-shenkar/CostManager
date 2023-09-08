@@ -32,7 +32,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 				CREATE TABLE costs (
 					id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
 					category_id INT,
-					sum DOUBLE,
+					total_cost DOUBLE,
 					currency VARCHAR(10),
 					description VARCHAR(32768),
 					date DATE,
@@ -87,11 +87,11 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		try (
 			Connection conn = this.databaseConnectionService.connectIfNeeded();
 			PreparedStatement ps = conn.prepareStatement(
-				"INSERT INTO costs (category_id, sum, currency, description, date) VALUES (?, ?, ?, ?, ?)"
+				"INSERT INTO costs (category_id, total_cost, currency, description, date) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS
 			)
 		) {
 			ps.setInt(1, cost.getCategory().getId());
-			ps.setDouble(2, cost.getSum());
+			ps.setDouble(2, cost.getTotalCost());
 			ps.setString(3, cost.getCurrency());
 			ps.setString(4, cost.getDescription());
 			ps.setDate(5, new java.sql.Date(cost.getDate().getTime()));
@@ -110,12 +110,12 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 			Connection conn = this.databaseConnectionService.connectIfNeeded();
 			PreparedStatement ps = conn.prepareStatement("""
 				UPDATE costs
-				SET category_id = ?, sum = ?, currency = ?, description = ?, date = ?
+				SET category_id = ?, total_cost = ?, currency = ?, description = ?, date = ?
 				WHERE id = ?
 			""")
 		) {
 			ps.setInt(1, cost.getCategory().getId());
-			ps.setDouble(2, cost.getSum());
+			ps.setDouble(2, cost.getTotalCost());
 			ps.setString(3, cost.getCurrency());
 			ps.setString(4, cost.getDescription());
 			ps.setDate(5, new java.sql.Date(cost.getDate().getTime()));
@@ -133,7 +133,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		try (
 			Connection conn = this.databaseConnectionService.connectIfNeeded();
 			PreparedStatement ps = conn.prepareStatement("""
-				SELECT costs.id, costs.sum, costs.currency, costs.description, costs.date, categories.id AS category_id, categories.name AS category_name
+				SELECT costs.id, costs.total_cost, costs.currency, costs.description, costs.date, categories.id AS category_id, categories.name AS category_name
 				FROM costs
 				INNER JOIN categories ON costs.category_id = categories.id
 				WHERE costs.id = ?
@@ -148,7 +148,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 					rs.getInt("category_id"),
 					rs.getString("category_name")
 				),
-				rs.getDouble("sum"),
+				rs.getDouble("total_cost"),
 				rs.getString("currency"),
 				rs.getString("description"),
 				rs.getDate("date")
@@ -165,7 +165,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 			Connection conn = this.databaseConnectionService.connectIfNeeded();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("""
-				SELECT costs.id, costs.sum, costs.currency, costs.description, costs.date, categories.id AS category_id, categories.name AS category_name
+				SELECT costs.id, costs.total_cost, costs.currency, costs.description, costs.date, categories.id AS category_id, categories.name AS category_name
 				FROM costs
 				INNER JOIN categories ON costs.category_id = categories.id
 			""")
@@ -177,7 +177,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 						rs.getInt("category_id"),
 						rs.getString("category_name")
 					),
-					rs.getDouble("sum"),
+					rs.getDouble("total_cost"),
 					rs.getString("currency"),
 					rs.getString("description"),
 					rs.getDate("date")
