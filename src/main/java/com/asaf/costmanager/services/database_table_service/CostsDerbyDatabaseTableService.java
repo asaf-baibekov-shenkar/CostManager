@@ -30,11 +30,11 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 			Connection connection = this.databaseConnectionService.connectIfNeeded();
 			PreparedStatement ps = connection.prepareStatement("""
 				CREATE TABLE costs (
-					id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+					id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) PRIMARY KEY,
 					category_id INT,
 					total_cost DOUBLE,
 					currency VARCHAR(10),
-					description VARCHAR(32768),
+					description VARCHAR(32672),
 					date DATE,
 					FOREIGN KEY (category_id) REFERENCES categories(id)
 				)
