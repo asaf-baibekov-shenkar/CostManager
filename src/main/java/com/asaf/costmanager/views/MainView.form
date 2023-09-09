@@ -4,13 +4,16 @@
     <constraints>
       <xy x="20" y="20" width="667" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <foreground color="-1"/>
+    </properties>
     <border type="none"/>
     <children>
-      <grid id="5e524" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="5e524" binding="topView" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints border-constraint="North"/>
         <properties>
           <background color="-14984335"/>
+          <foreground color="-1"/>
         </properties>
         <border type="none"/>
         <children>
@@ -20,10 +23,10 @@
               <text value="📊 Reports"/>
             </properties>
           </component>
-          <component id="83e8f" class="javax.swing.JButton" binding="addACostButton" default-binding="true">
+          <component id="83e8f" class="javax.swing.JButton" binding="addCostButton">
             <constraints/>
             <properties>
-              <text value="💱 Add a cost"/>
+              <text value="💱 Add Cost"/>
             </properties>
           </component>
           <component id="9656c" class="javax.swing.JButton" binding="categoriesButton" default-binding="true">
@@ -34,10 +37,11 @@
           </component>
         </children>
       </grid>
-      <grid id="be9f4" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="be9f4" binding="contentView" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties>
-          <background color="-593455"/>
+          <background color="-1"/>
+          <foreground color="-1"/>
         </properties>
         <border type="none"/>
         <children/>

@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="rename the Cost property sum to total_cost">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" afterDir="false" />
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="create ReportsView CostsView and CategoriesView">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCategoryDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCategoryDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/interfaces/IDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/interfaces/IDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_connection_service/LocalDatabaseConnectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_connection_service/LocalDatabaseConnectionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_connection_service/interfaces/IDatabaseConnectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_connection_service/interfaces/IDatabaseConnectionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CategoriesDerbyDatabaseTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CategoriesDerbyDatabaseTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/interfaces/IDatabaseTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/interfaces/IDatabaseTableService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +45,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "150",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "281",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -67,7 +57,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -113,7 +103,7 @@
       <updated>1693682777867</updated>
       <workItem from="1693682778856" duration="9560000" />
       <workItem from="1694011290803" duration="53043000" />
-      <workItem from="1694162667874" duration="18590000" />
+      <workItem from="1694162667874" duration="30954000" />
     </task>
     <task id="LOCAL-00001" summary="maven install jgoodies-forms">
       <option name="closed" value="true" />
@@ -187,7 +177,47 @@
       <option name="project" value="LOCAL" />
       <updated>1694183690995</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix cost table creation">
+      <option name="closed" value="true" />
+      <created>1694183842693</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694183842693</updated>
+    </task>
+    <task id="LOCAL-00011" summary="when creating new record. set the given model from the parameter instead of returning a new model">
+      <option name="closed" value="true" />
+      <created>1694184008972</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694184008972</updated>
+    </task>
+    <task id="LOCAL-00012" summary="create dropDatabase and dropDatabaseIfExists">
+      <option name="closed" value="true" />
+      <created>1694184049596</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694184049596</updated>
+    </task>
+    <task id="LOCAL-00013" summary="create a class that will handle mock data">
+      <option name="closed" value="true" />
+      <created>1694184116046</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694184116046</updated>
+    </task>
+    <task id="LOCAL-00014" summary="create ReportsView CostsView and CategoriesView">
+      <option name="closed" value="true" />
+      <created>1694264371510</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694264371510</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,8 +228,12 @@
     <MESSAGE value="maven install derby" />
     <MESSAGE value="create new local database" />
     <MESSAGE value="create database, models and communications" />
-    <MESSAGE value="fix cost table creation" />
     <MESSAGE value="rename the Cost property sum to total_cost" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename the Cost property sum to total_cost" />
+    <MESSAGE value="fix cost table creation" />
+    <MESSAGE value="when creating new record. set the given model from the parameter instead of returning a new model" />
+    <MESSAGE value="create dropDatabase and dropDatabaseIfExists" />
+    <MESSAGE value="create a class that will handle mock data" />
+    <MESSAGE value="create ReportsView CostsView and CategoriesView" />
+    <option name="LAST_COMMIT_MESSAGE" value="create ReportsView CostsView and CategoriesView" />
   </component>
 </project>
