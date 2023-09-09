@@ -21,6 +21,13 @@
             <artifactId>jgoodies-forms</artifactId>
             <version>1.9.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxjava -->
+        <dependency>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>3.1.7</version>
+        </dependency>
     </dependencies>
 
 </project>
