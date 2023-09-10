@@ -1,11 +1,9 @@
 package com.asaf.costmanager;
 
-import com.asaf.costmanager.views.MainView;
-
-import javax.swing.*;
+import com.asaf.costmanager.coordinator.MainCoordinator;
 
 public class Main {
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(MainView::new);
+		new MainCoordinator().start();
 	}
 }

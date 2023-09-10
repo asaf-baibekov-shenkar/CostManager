@@ -1,10 +1,14 @@
 package com.asaf.costmanager.views;
 
+import com.asaf.costmanager.view_models.MainViewModel;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainView implements ActionListener {
+	
+	public MainViewModel viewModel;
 	
 	private ReportsView reportsView;
 	private CostsView costsView;
@@ -18,7 +22,9 @@ public class MainView implements ActionListener {
 	private JButton reportsButton;
 	private JButton addCostButton;
 	
-	public MainView() {
+	public MainView(MainViewModel viewModel) {
+		this.viewModel = viewModel;
+		
 		JFrame frame = new JFrame("Cost Manager");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 570);
@@ -46,13 +52,11 @@ public class MainView implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == this.categoriesButton)
-			System.out.println("Categories button clicked");
-		else if (e.getSource() == this.reportsButton)
-			System.out.println("Reports button clicked");
+		if (e.getSource() == this.reportsButton)
+			this.viewModel.reportNavigationSelected();
 		else if (e.getSource() == this.addCostButton)
-			System.out.println("Add a cost button clicked");
-		else
-			System.out.println("Unknown button clicked");
+			this.viewModel.costsNavigationSelected();
+		else if (e.getSource() == this.categoriesButton)
+			this.viewModel.categoriesNavigationSelected();
 	}
 }

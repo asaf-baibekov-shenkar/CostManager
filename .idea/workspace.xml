@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment=" create ReportsView CostsView and CategoriesView">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="install RxJava">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/Coordinator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/MainViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +108,7 @@
       <updated>1693682777867</updated>
       <workItem from="1693682778856" duration="9560000" />
       <workItem from="1694011290803" duration="53043000" />
-      <workItem from="1694162667874" duration="31692000" />
+      <workItem from="1694162667874" duration="38965000" />
     </task>
     <task id="LOCAL-00001" summary="maven install jgoodies-forms">
       <option name="closed" value="true" />
@@ -234,7 +238,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694265880335</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="clean main function">
+      <option name="closed" value="true" />
+      <created>1694265931221</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694265931221</updated>
+    </task>
+    <task id="LOCAL-00018" summary="install RxJava">
+      <option name="closed" value="true" />
+      <created>1694266393246</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694266393246</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +273,8 @@
     <MESSAGE value="create ReportsView CostsView and CategoriesView" />
     <MESSAGE value="update workspace.xml" />
     <MESSAGE value=" create ReportsView CostsView and CategoriesView" />
-    <option name="LAST_COMMIT_MESSAGE" value=" create ReportsView CostsView and CategoriesView" />
+    <MESSAGE value="clean main function" />
+    <MESSAGE value="install RxJava" />
+    <option name="LAST_COMMIT_MESSAGE" value="install RxJava" />
   </component>
 </project>
