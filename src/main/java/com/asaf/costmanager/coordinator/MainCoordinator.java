@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainCoordinator implements Coordinator {
 	
@@ -25,7 +26,9 @@ public class MainCoordinator implements Coordinator {
 	
 	@Override
 	public void start() {
-		MainViewModel mainViewModel = new MainViewModel();
+//		Locale locale = Locale.forLanguageTag("he-IL");
+		Locale locale = null;
+		MainViewModel mainViewModel = new MainViewModel(locale);
 		this.compositeDisposable.add(
 			mainViewModel
 				.getNavigationTypeObservable()

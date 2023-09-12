@@ -3,8 +3,10 @@ package com.asaf.costmanager.views;
 import com.asaf.costmanager.view_models.MainViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 public class MainView implements ActionListener {
 	
@@ -33,6 +35,10 @@ public class MainView implements ActionListener {
 		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.add(this.panel1);
+		
+		Locale locale = viewModel.getLocale();
+		if (locale != null)
+			frame.applyComponentOrientation(ComponentOrientation.getOrientation(locale));
 		
 		this.setupViews();
 		this.setupListeners();

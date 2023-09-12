@@ -1,7 +1,10 @@
 package com.asaf.costmanager.view_models;
 
+import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
+
+import java.util.Locale;
 
 public class MainViewModel {
 	public enum NavigationType {
@@ -10,11 +13,21 @@ public class MainViewModel {
 		Categories
 	}
 	
+	@Nullable
+	private final Locale locale;
+	
 	private final BehaviorSubject<NavigationType> navigationTypeBehaviorSubject;
 	private Observable<NavigationType> navigationTypeObservable;
 	
-	public MainViewModel() {
+	public MainViewModel(@Nullable Locale locale) {
+		this.locale = locale;
 		this.navigationTypeBehaviorSubject = BehaviorSubject.createDefault(NavigationType.Reports);
+		if (locale != null)
+			Locale.setDefault(locale);
+	}
+	
+	public @Nullable Locale getLocale() {
+		return locale;
 	}
 	
 	public Observable<NavigationType> getNavigationTypeObservable() {
