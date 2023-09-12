@@ -20,8 +20,12 @@
           <component id="ceef4" class="javax.swing.JButton" binding="reportsButton" default-binding="true">
             <constraints/>
             <properties>
+              <hideActionText value="false"/>
               <text resource-bundle="messages" key="ud83d.udcca.reports"/>
             </properties>
+            <clientProperties>
+              <hideActionText class="java.lang.Boolean" value="false"/>
+            </clientProperties>
           </component>
           <component id="83e8f" class="javax.swing.JButton" binding="addCostButton">
             <constraints/>

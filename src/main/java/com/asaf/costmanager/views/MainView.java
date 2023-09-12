@@ -4,9 +4,11 @@ import com.asaf.costmanager.view_models.MainViewModel;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
+import javax.swing.plaf.metal.MetalButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.Locale;
 
 public class MainView implements ActionListener {
@@ -53,6 +55,16 @@ public class MainView implements ActionListener {
 		this.reportsView = new ReportsView();
 		this.costsView = new CostsView();
 		this.categoriesView = new CategoriesView();
+		
+		UIDefaults defaults = UIManager.getLookAndFeelDefaults();
+		defaults.put("Button.select", new Color(167, 168, 171));
+		Arrays.asList(this.categoriesButton, this.reportsButton, this.addCostButton)
+			.forEach((view) -> {
+				view.setUI(new MetalButtonUI());
+				view.setBorderPainted(true);
+				view.setFocusPainted(false);
+				view.setFont(new Font(view.getFont().getName(), view.getFont().getStyle(), 18));
+			});
 	}
 	
 	private void setupListeners() {
@@ -66,6 +78,7 @@ public class MainView implements ActionListener {
 			this.viewModel
 				.getNavigationTypeObservable()
 				.subscribe((navigationType) -> {
+					this.activateButton(navigationType);
 					this.activateContentView(navigationType);
 				})
 		);
@@ -79,6 +92,43 @@ public class MainView implements ActionListener {
 			this.viewModel.costsNavigationSelected();
 		else if (e.getSource() == this.categoriesButton)
 			this.viewModel.categoriesNavigationSelected();
+	}
+	
+	private void activateButton(MainViewModel.NavigationType navigationType) {
+		Color selectedForegroundColor = Color.BLACK;
+		Color unselectedForegroundColor = new Color(255, 255, 255);
+		
+		Color selectedBackgroundColor = new Color(255, 255, 255);
+		Color unselectedBackgroundColor = new Color(128, 128, 128);
+		switch (navigationType) {
+			case Reports -> {
+				this.reportsButton.setBackground(selectedBackgroundColor);
+				this.addCostButton.setBackground(unselectedBackgroundColor);
+				this.categoriesButton.setBackground(unselectedBackgroundColor);
+				
+				this.reportsButton.setForeground(selectedForegroundColor);
+				this.addCostButton.setForeground(unselectedForegroundColor);
+				this.categoriesButton.setForeground(unselectedForegroundColor);
+			}
+			case Costs -> {
+				this.reportsButton.setBackground(unselectedBackgroundColor);
+				this.addCostButton.setBackground(selectedBackgroundColor);
+				this.categoriesButton.setBackground(unselectedBackgroundColor);
+				
+				this.reportsButton.setForeground(unselectedForegroundColor);
+				this.addCostButton.setForeground(selectedForegroundColor);
+				this.categoriesButton.setForeground(unselectedForegroundColor);
+			}
+			case Categories -> {
+				this.reportsButton.setBackground(unselectedBackgroundColor);
+				this.addCostButton.setBackground(unselectedBackgroundColor);
+				this.categoriesButton.setBackground(selectedBackgroundColor);
+				
+				this.reportsButton.setForeground(unselectedForegroundColor);
+				this.addCostButton.setForeground(unselectedForegroundColor);
+				this.categoriesButton.setForeground(selectedForegroundColor);
+			}
+		}
 	}
 	
 	private void activateContentView(MainViewModel.NavigationType navigationType) {
