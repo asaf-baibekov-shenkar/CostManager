@@ -13,7 +13,7 @@
       <grid id="c5249" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag top="60" left="60" bottom="20" right="60" weightx="1.0" weighty="0.18"/>
+          <gridbag top="60" left="60" bottom="22" right="60" weightx="1.0" weighty="0.18"/>
         </constraints>
         <properties>
           <background color="-14984335"/>
@@ -22,18 +22,22 @@
         <border type="none"/>
         <children/>
       </grid>
-      <component id="6a726" class="javax.swing.JTable" binding="table1" default-binding="true">
+      <scrollpane id="576ce">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <gridbag top="20" left="60" bottom="60" right="60" weightx="0.0" weighty="0.5"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag top="22" left="60" bottom="60" right="60" weightx="0.0" weighty="0.492"/>
         </constraints>
         <properties>
-          <background color="-1"/>
-          <foreground color="-16777216"/>
+          <horizontalScrollBarPolicy value="32"/>
         </properties>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="19fff" class="javax.swing.JTable" binding="table1" default-binding="true">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>
