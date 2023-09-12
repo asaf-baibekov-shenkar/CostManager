@@ -32,7 +32,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="19fff" class="javax.swing.JTable" binding="table1" default-binding="true">
+          <component id="19fff" class="javax.swing.JTable" binding="reportsTable">
             <constraints/>
             <properties/>
           </component>
