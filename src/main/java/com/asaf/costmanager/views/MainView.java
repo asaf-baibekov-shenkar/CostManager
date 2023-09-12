@@ -100,32 +100,24 @@ public class MainView implements ActionListener {
 		
 		Color selectedBackgroundColor = new Color(255, 255, 255);
 		Color unselectedBackgroundColor = new Color(128, 128, 128);
+		
+		Arrays.asList(this.reportsButton, this.addCostButton, this.categoriesButton)
+			.forEach((view) -> {
+				view.setBackground(unselectedBackgroundColor);
+				view.setForeground(unselectedForegroundColor);
+			});
+		
 		switch (navigationType) {
 			case Reports -> {
 				this.reportsButton.setBackground(selectedBackgroundColor);
-				this.addCostButton.setBackground(unselectedBackgroundColor);
-				this.categoriesButton.setBackground(unselectedBackgroundColor);
-				
 				this.reportsButton.setForeground(selectedForegroundColor);
-				this.addCostButton.setForeground(unselectedForegroundColor);
-				this.categoriesButton.setForeground(unselectedForegroundColor);
 			}
 			case Costs -> {
-				this.reportsButton.setBackground(unselectedBackgroundColor);
 				this.addCostButton.setBackground(selectedBackgroundColor);
-				this.categoriesButton.setBackground(unselectedBackgroundColor);
-				
-				this.reportsButton.setForeground(unselectedForegroundColor);
 				this.addCostButton.setForeground(selectedForegroundColor);
-				this.categoriesButton.setForeground(unselectedForegroundColor);
 			}
 			case Categories -> {
-				this.reportsButton.setBackground(unselectedBackgroundColor);
-				this.addCostButton.setBackground(unselectedBackgroundColor);
 				this.categoriesButton.setBackground(selectedBackgroundColor);
-				
-				this.reportsButton.setForeground(unselectedForegroundColor);
-				this.addCostButton.setForeground(unselectedForegroundColor);
 				this.categoriesButton.setForeground(selectedForegroundColor);
 			}
 		}
