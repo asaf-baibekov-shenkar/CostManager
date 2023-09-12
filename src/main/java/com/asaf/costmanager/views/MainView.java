@@ -1,6 +1,7 @@
 package com.asaf.costmanager.views;
 
 import com.asaf.costmanager.view_models.MainViewModel;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,8 @@ import java.util.Locale;
 public class MainView implements ActionListener {
 	
 	public MainViewModel viewModel;
+	
+	private final CompositeDisposable compositeDisposable;
 	
 	private ReportsView reportsView;
 	private CostsView costsView;
@@ -26,6 +29,7 @@ public class MainView implements ActionListener {
 	
 	public MainView(MainViewModel viewModel) {
 		this.viewModel = viewModel;
+		this.compositeDisposable = new CompositeDisposable();
 		
 		JFrame frame = new JFrame("Cost Manager");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,6 +46,7 @@ public class MainView implements ActionListener {
 		
 		this.setupViews();
 		this.setupListeners();
+		this.setupRx();
 	}
 	
 	private void setupViews() {
@@ -56,6 +61,16 @@ public class MainView implements ActionListener {
 		this.addCostButton.addActionListener(this);
 	}
 	
+	private void setupRx() {
+		this.compositeDisposable.add(
+			this.viewModel
+				.getNavigationTypeObservable()
+				.subscribe((navigationType) -> {
+					this.activateContentView(navigationType);
+				})
+		);
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.reportsButton)
@@ -64,5 +79,16 @@ public class MainView implements ActionListener {
 			this.viewModel.costsNavigationSelected();
 		else if (e.getSource() == this.categoriesButton)
 			this.viewModel.categoriesNavigationSelected();
+	}
+	
+	private void activateContentView(MainViewModel.NavigationType navigationType) {
+		this.contentView.removeAll();
+		switch (navigationType) {
+			case Reports    -> this.contentView.add(this.reportsView.getPanel());
+			case Costs      -> this.contentView.add(this.costsView.getPanel());
+			case Categories -> this.contentView.add(this.categoriesView.getPanel());
+		}
+		this.contentView.revalidate();
+		this.contentView.repaint();
 	}
 }
