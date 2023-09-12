@@ -27,7 +27,7 @@
               <hideActionText class="java.lang.Boolean" value="false"/>
             </clientProperties>
           </component>
-          <component id="83e8f" class="javax.swing.JButton" binding="addCostButton">
+          <component id="83e8f" class="javax.swing.JButton" binding="costsButton">
             <constraints/>
             <properties>
               <text resource-bundle="messages" key="ud83d.udcb1.add.cost"/>

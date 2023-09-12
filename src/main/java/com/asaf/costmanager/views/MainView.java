@@ -27,7 +27,7 @@ public class MainView implements ActionListener {
 	
 	private JButton categoriesButton;
 	private JButton reportsButton;
-	private JButton addCostButton;
+	private JButton costsButton;
 	
 	public MainView(MainViewModel viewModel) {
 		this.viewModel = viewModel;
@@ -58,7 +58,7 @@ public class MainView implements ActionListener {
 		
 		UIDefaults defaults = UIManager.getLookAndFeelDefaults();
 		defaults.put("Button.select", new Color(167, 168, 171));
-		Arrays.asList(this.categoriesButton, this.reportsButton, this.addCostButton)
+		Arrays.asList(this.categoriesButton, this.reportsButton, this.costsButton)
 			.forEach((view) -> {
 				view.setUI(new MetalButtonUI());
 				view.setBorderPainted(true);
@@ -70,7 +70,7 @@ public class MainView implements ActionListener {
 	private void setupListeners() {
 		this.categoriesButton.addActionListener(this);
 		this.reportsButton.addActionListener(this);
-		this.addCostButton.addActionListener(this);
+		this.costsButton.addActionListener(this);
 	}
 	
 	private void setupRx() {
@@ -88,7 +88,7 @@ public class MainView implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.reportsButton)
 			this.viewModel.reportNavigationSelected();
-		else if (e.getSource() == this.addCostButton)
+		else if (e.getSource() == this.costsButton)
 			this.viewModel.costsNavigationSelected();
 		else if (e.getSource() == this.categoriesButton)
 			this.viewModel.categoriesNavigationSelected();
@@ -101,7 +101,7 @@ public class MainView implements ActionListener {
 		Color selectedBackgroundColor = new Color(255, 255, 255);
 		Color unselectedBackgroundColor = new Color(128, 128, 128);
 		
-		Arrays.asList(this.reportsButton, this.addCostButton, this.categoriesButton)
+		Arrays.asList(this.reportsButton, this.costsButton, this.categoriesButton)
 			.forEach((view) -> {
 				view.setBackground(unselectedBackgroundColor);
 				view.setForeground(unselectedForegroundColor);
@@ -113,8 +113,8 @@ public class MainView implements ActionListener {
 				this.reportsButton.setForeground(selectedForegroundColor);
 			}
 			case Costs -> {
-				this.addCostButton.setBackground(selectedBackgroundColor);
-				this.addCostButton.setForeground(selectedForegroundColor);
+				this.costsButton.setBackground(selectedBackgroundColor);
+				this.costsButton.setForeground(selectedForegroundColor);
 			}
 			case Categories -> {
 				this.categoriesButton.setBackground(selectedBackgroundColor);
