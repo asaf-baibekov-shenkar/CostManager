@@ -9,7 +9,7 @@ public class ReportsView {
 	private JTextField yearTextField;
 	private JTextField monthTextField;
 	private JTextField dayTextField;
-	private JButton filterButton;
+	private JButton submitButton;
 	
 	public JPanel getPanel() {
 		return panel;

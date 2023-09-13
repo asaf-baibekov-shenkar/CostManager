@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="add components to the top view of the ReportsView">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MainView.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MainView_he.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ReportsView.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ReportsView_he.properties" afterDir="false" />
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="separate localization files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_he.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ReportsView.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ReportsView.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ReportsView_he.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ReportsView_he.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694584161362</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="separate localization files">
+      <option name="closed" value="true" />
+      <created>1694585097373</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1694585097373</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +371,7 @@
     <MESSAGE value="change buttons look and feel, font size, and emojis" />
     <MESSAGE value="build the top title of the top panel" />
     <MESSAGE value="add components to the top view of the ReportsView" />
-    <option name="LAST_COMMIT_MESSAGE" value="add components to the top view of the ReportsView" />
+    <MESSAGE value="separate localization files" />
+    <option name="LAST_COMMIT_MESSAGE" value="separate localization files" />
   </component>
 </project>
