@@ -21,7 +21,7 @@
             <constraints/>
             <properties>
               <hideActionText value="false"/>
-              <text resource-bundle="messages" key="ud83d.udcca.reports"/>
+              <text resource-bundle="MainView" key="ud83d.udcca.reports"/>
             </properties>
             <clientProperties>
               <hideActionText class="java.lang.Boolean" value="false"/>
@@ -30,13 +30,13 @@
           <component id="83e8f" class="javax.swing.JButton" binding="costsButton">
             <constraints/>
             <properties>
-              <text resource-bundle="messages" key="ud83d.udcb1.add.cost"/>
+              <text resource-bundle="MainView" key="ud83d.udcb1.add.cost"/>
             </properties>
           </component>
           <component id="9656c" class="javax.swing.JButton" binding="categoriesButton" default-binding="true">
             <constraints/>
             <properties>
-              <text resource-bundle="messages" key="ud83c.udff7.categories"/>
+              <text resource-bundle="MainView" key="ud83c.udff7.categories"/>
             </properties>
           </component>
         </children>

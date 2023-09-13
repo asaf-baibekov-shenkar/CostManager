@@ -31,7 +31,7 @@
               <font size="20" style="1"/>
               <foreground color="-593455"/>
               <horizontalAlignment value="0"/>
-              <text resource-bundle="messages" key="filter.records"/>
+              <text resource-bundle="ReportsView" key="filter.records"/>
             </properties>
           </component>
           <grid id="f38a3" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
