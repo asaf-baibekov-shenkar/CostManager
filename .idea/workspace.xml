@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="add combo boxes and text fields to the cost addition layout">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="build containers layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +109,7 @@
       <workItem from="1693682778856" duration="9560000" />
       <workItem from="1694011290803" duration="53043000" />
       <workItem from="1694162667874" duration="38965000" />
-      <workItem from="1694586785400" duration="13398000" />
+      <workItem from="1694586785400" duration="20100000" />
     </task>
     <task id="LOCAL-00001" summary="maven install jgoodies-forms">
       <option name="closed" value="true" />
@@ -374,14 +375,29 @@
       <option name="project" value="LOCAL" />
       <updated>1694598496189</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="build containers layout">
+      <option name="closed" value="true" />
+      <created>1694606827599</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1694606827599</updated>
+    </task>
+    <task id="LOCAL-00035" summary="build containers layout">
+      <option name="closed" value="true" />
+      <created>1694606972294</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1694606972294</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="maven install jgoodies-forms" />
     <MESSAGE value="maven install derby" />
     <MESSAGE value="create new local database" />
     <MESSAGE value="create database, models and communications" />
@@ -406,6 +422,7 @@
     <MESSAGE value="fix top view layout in ReportsView" />
     <MESSAGE value="build layout for CostsView.form" />
     <MESSAGE value="add combo boxes and text fields to the cost addition layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="add combo boxes and text fields to the cost addition layout" />
+    <MESSAGE value="build containers layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="build containers layout" />
   </component>
 </project>
