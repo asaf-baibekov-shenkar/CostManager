@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="build containers layout">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="build left container components layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" afterDir="false" />
@@ -109,7 +109,7 @@
       <workItem from="1693682778856" duration="9560000" />
       <workItem from="1694011290803" duration="53043000" />
       <workItem from="1694162667874" duration="38965000" />
-      <workItem from="1694586785400" duration="20100000" />
+      <workItem from="1694586785400" duration="22400000" />
     </task>
     <task id="LOCAL-00001" summary="maven install jgoodies-forms">
       <option name="closed" value="true" />
@@ -391,14 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694606972294</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="build left container components layout">
+      <option name="closed" value="true" />
+      <created>1694632832532</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1694632832532</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="maven install derby" />
     <MESSAGE value="create new local database" />
     <MESSAGE value="create database, models and communications" />
     <MESSAGE value="rename the Cost property sum to total_cost" />
@@ -423,6 +430,7 @@
     <MESSAGE value="build layout for CostsView.form" />
     <MESSAGE value="add combo boxes and text fields to the cost addition layout" />
     <MESSAGE value="build containers layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="build containers layout" />
+    <MESSAGE value="build left container components layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="build left container components layout" />
   </component>
 </project>
