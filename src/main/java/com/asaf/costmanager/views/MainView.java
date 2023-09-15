@@ -13,7 +13,7 @@ import java.util.Locale;
 
 public class MainView implements ActionListener {
 	
-	public MainViewModel viewModel;
+	private final MainViewModel viewModel;
 	
 	private final CompositeDisposable compositeDisposable;
 	
@@ -48,14 +48,9 @@ public class MainView implements ActionListener {
 		
 		this.setupViews();
 		this.setupListeners();
-		this.setupRx();
 	}
 	
 	private void setupViews() {
-		this.reportsView = new ReportsView();
-		this.costsView = new CostsView();
-		this.categoriesView = new CategoriesView();
-		
 		UIDefaults defaults = UIManager.getLookAndFeelDefaults();
 		defaults.put("Button.select", new Color(167, 168, 171));
 		Arrays.asList(this.categoriesButton, this.reportsButton, this.costsButton)
@@ -71,17 +66,6 @@ public class MainView implements ActionListener {
 		this.categoriesButton.addActionListener(this);
 		this.reportsButton.addActionListener(this);
 		this.costsButton.addActionListener(this);
-	}
-	
-	private void setupRx() {
-		this.compositeDisposable.add(
-			this.viewModel
-				.getNavigationTypeObservable()
-				.subscribe((navigationType) -> {
-					this.activateButton(navigationType);
-					this.activateContentView(navigationType);
-				})
-		);
 	}
 	
 	@Override
@@ -123,13 +107,32 @@ public class MainView implements ActionListener {
 		}
 	}
 	
-	private void activateContentView(MainViewModel.NavigationType navigationType) {
+	public void activateReportsView() {
+		this.activateButton(MainViewModel.NavigationType.Reports);
 		this.contentView.removeAll();
-		switch (navigationType) {
-			case Reports    -> this.contentView.add(this.reportsView.getPanel());
-			case Costs      -> this.contentView.add(this.costsView.getPanel());
-			case Categories -> this.contentView.add(this.categoriesView.getPanel());
-		}
+		if (this.reportsView == null)
+			this.reportsView = new ReportsView();
+		this.contentView.add(this.reportsView.getPanel());
+		this.contentView.revalidate();
+		this.contentView.repaint();
+	}
+	
+	public void activateCostsView() {
+		this.activateButton(MainViewModel.NavigationType.Costs);
+		this.contentView.removeAll();
+		if (this.costsView == null)
+			this.costsView = new CostsView();
+		this.contentView.add(this.costsView.getPanel());
+		this.contentView.revalidate();
+		this.contentView.repaint();
+	}
+	
+	public void activateCategoriesView() {
+		this.activateButton(MainViewModel.NavigationType.Categories);
+		this.contentView.removeAll();
+		if (this.categoriesView == null)
+			this.categoriesView = new CategoriesView();
+		this.contentView.add(this.categoriesView.getPanel());
 		this.contentView.revalidate();
 		this.contentView.repaint();
 	}

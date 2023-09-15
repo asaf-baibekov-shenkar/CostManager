@@ -2,6 +2,7 @@ package com.asaf.costmanager.coordinator;
 
 import com.asaf.costmanager.view_models.MainViewModel;
 import com.asaf.costmanager.views.MainView;
+import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
@@ -10,6 +11,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainCoordinator implements Coordinator {
+	
+	private @Nullable MainView mainView;
 	
 	private final CompositeDisposable compositeDisposable;
 	private final ArrayList<Coordinator> coordinators;
@@ -32,8 +35,32 @@ public class MainCoordinator implements Coordinator {
 		this.compositeDisposable.add(
 			mainViewModel
 				.getNavigationTypeObservable()
-				.subscribe(System.out::println)
+				.subscribe((navigationType) -> {
+					switch (navigationType) {
+						case Reports    -> this.showReportsView();
+						case Costs      -> this.showCostsView();
+						case Categories -> this.showCategoriesView();
+					}
+				})
 		);
-		SwingUtilities.invokeLater(() -> new MainView(mainViewModel));
+		SwingUtilities.invokeLater(() -> {
+			this.mainView = new MainView(mainViewModel);
+			mainViewModel.reportNavigationSelected();
+		});
+	}
+	
+	private void showReportsView() {
+		if (this.mainView == null) return;
+		this.mainView.activateReportsView();
+	}
+	
+	private void showCostsView() {
+		if (this.mainView == null) return;
+		this.mainView.activateCostsView();
+	}
+	
+	private void showCategoriesView() {
+		if (this.mainView == null) return;
+		this.mainView.activateCategoriesView();
 	}
 }
