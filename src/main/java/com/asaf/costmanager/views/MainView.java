@@ -1,6 +1,7 @@
 package com.asaf.costmanager.views;
 
 import com.asaf.costmanager.view_models.CategoriesViewModel;
+import com.asaf.costmanager.view_models.CostsViewModel;
 import com.asaf.costmanager.view_models.MainViewModel;
 
 import javax.swing.*;
@@ -113,11 +114,11 @@ public class MainView implements ActionListener {
 		this.contentView.repaint();
 	}
 	
-	public void activateCostsView() {
+	public void activateCostsView(CostsViewModel viewModel) {
 		this.activateButton(MainViewModel.NavigationType.Costs);
 		this.contentView.removeAll();
 		if (this.costsView == null)
-			this.costsView = new CostsView();
+			this.costsView = new CostsView(viewModel);
 		this.contentView.add(this.costsView.getPanel());
 		this.contentView.revalidate();
 		this.contentView.repaint();

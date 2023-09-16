@@ -100,7 +100,9 @@
                   </component>
                   <component id="41c4" class="javax.swing.JComboBox" binding="currencyComboBox">
                     <constraints border-constraint="South"/>
-                    <properties/>
+                    <properties>
+                      <opaque value="true"/>
+                    </properties>
                   </component>
                 </children>
               </grid>

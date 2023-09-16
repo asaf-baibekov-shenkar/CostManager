@@ -1,13 +1,17 @@
 package com.asaf.costmanager.coordinator;
 
 import com.asaf.costmanager.data_access_objects.DatabaseCategoryDataAccessObject;
+import com.asaf.costmanager.data_access_objects.DatabaseCostDataAccessObject;
 import com.asaf.costmanager.data_access_objects.interfaces.IDataAccessObject;
 import com.asaf.costmanager.models.Category;
+import com.asaf.costmanager.models.Cost;
 import com.asaf.costmanager.services.database_connection_service.LocalDatabaseConnectionService;
 import com.asaf.costmanager.services.database_connection_service.interfaces.IDatabaseConnectionService;
 import com.asaf.costmanager.services.database_table_service.CategoriesDerbyDatabaseTableService;
+import com.asaf.costmanager.services.database_table_service.CostsDerbyDatabaseTableService;
 import com.asaf.costmanager.services.database_table_service.interfaces.IDatabaseTableService;
 import com.asaf.costmanager.view_models.CategoriesViewModel;
+import com.asaf.costmanager.view_models.CostsViewModel;
 import com.asaf.costmanager.view_models.MainViewModel;
 import com.asaf.costmanager.views.MainView;
 import io.reactivex.rxjava3.annotations.Nullable;
@@ -22,6 +26,7 @@ public class MainCoordinator implements Coordinator {
 	
 	private @Nullable MainView mainView;
 	
+	private final IDatabaseTableService<Cost> costsService;
 	private final IDatabaseTableService<Category> categoriesService;
 	private final CompositeDisposable compositeDisposable;
 	private final ArrayList<Coordinator> coordinators;
@@ -31,6 +36,7 @@ public class MainCoordinator implements Coordinator {
 		this.compositeDisposable = new CompositeDisposable();
 		IDatabaseConnectionService databaseConnectionService = new LocalDatabaseConnectionService("CostManagerDatabase");
 		databaseConnectionService.connectIfNeeded();
+		this.costsService = new CostsDerbyDatabaseTableService(databaseConnectionService);
 		this.categoriesService = new CategoriesDerbyDatabaseTableService(databaseConnectionService);
 	}
 	
@@ -68,7 +74,10 @@ public class MainCoordinator implements Coordinator {
 	
 	private void showCostsView() {
 		if (this.mainView == null) return;
-		this.mainView.activateCostsView();
+		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
+		IDataAccessObject<Category> categoryDAO = new DatabaseCategoryDataAccessObject(this.categoriesService);
+		CostsViewModel costsViewModel = new CostsViewModel(costsDAO, categoryDAO);
+		this.mainView.activateCostsView(costsViewModel);
 	}
 	
 	private void showCategoriesView() {
