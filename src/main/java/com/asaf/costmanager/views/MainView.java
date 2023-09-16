@@ -2,7 +2,6 @@ package com.asaf.costmanager.views;
 
 import com.asaf.costmanager.view_models.CategoriesViewModel;
 import com.asaf.costmanager.view_models.MainViewModel;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalButtonUI;
@@ -16,14 +15,11 @@ public class MainView implements ActionListener {
 	
 	private final MainViewModel viewModel;
 	
-	private final CompositeDisposable compositeDisposable;
-	
 	private ReportsView reportsView;
 	private CostsView costsView;
 	private CategoriesView categoriesView;
 	
 	private JPanel panel1;
-	private JPanel topView;
 	private JPanel contentView;
 	
 	private JButton categoriesButton;
@@ -32,7 +28,6 @@ public class MainView implements ActionListener {
 	
 	public MainView(MainViewModel viewModel) {
 		this.viewModel = viewModel;
-		this.compositeDisposable = new CompositeDisposable();
 		
 		JFrame frame = new JFrame("Cost Manager");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
