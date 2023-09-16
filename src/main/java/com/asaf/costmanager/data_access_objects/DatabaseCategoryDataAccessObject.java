@@ -53,6 +53,10 @@ public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Categ
 	
 	@Override
 	public Category delete(int id) {
-		return null;
+		try {
+			return this.categoriesDatabaseTableService.deleteRecord(id);
+		} catch (CostManagerException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

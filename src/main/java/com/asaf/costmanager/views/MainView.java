@@ -1,5 +1,6 @@
 package com.asaf.costmanager.views;
 
+import com.asaf.costmanager.view_models.CategoriesViewModel;
 import com.asaf.costmanager.view_models.MainViewModel;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
@@ -127,11 +128,11 @@ public class MainView implements ActionListener {
 		this.contentView.repaint();
 	}
 	
-	public void activateCategoriesView() {
+	public void activateCategoriesView(CategoriesViewModel viewModel) {
 		this.activateButton(MainViewModel.NavigationType.Categories);
 		this.contentView.removeAll();
 		if (this.categoriesView == null)
-			this.categoriesView = new CategoriesView();
+			this.categoriesView = new CategoriesView(viewModel);
 		this.contentView.add(this.categoriesView.getPanel());
 		this.contentView.revalidate();
 		this.contentView.repaint();
