@@ -6,6 +6,7 @@ import com.asaf.costmanager.view_models.CostsViewModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,6 +47,18 @@ public class CostsView {
 		for (Currency currency : currencies)
 			currenciesModel.addElement(currency.getSymbol() + '-' + currency.getName());
 		this.currencyComboBox.setModel(currenciesModel);
+		
+		this.amountTextField.setTransferHandler(null);
+		this.amountTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+			public void keyTyped(java.awt.event.KeyEvent evt) {
+				char c = evt.getKeyChar();
+				boolean isNumber = (c >= '0') && (c <= '9');
+				boolean isBackspace = (c == java.awt.event.KeyEvent.VK_BACK_SPACE);
+				boolean isDelete = (c == java.awt.event.KeyEvent.VK_DELETE);
+				if (!isNumber && !isBackspace && !isDelete)
+					evt.consume();
+			}
+		});
 	}
 	
 	public JPanel getPanel() {

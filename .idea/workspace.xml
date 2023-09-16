@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="present all categories in the costs view combo box">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCurrencyDataAccessObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/models/Currency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CurrenciesDerbyDatabaseTableService.java" afterDir="false" />
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="build currency model and table and costs view model, show data on combo boxes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/models/Cost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/models/Cost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -465,14 +457,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694865547449</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="build currency model and table and costs view model, show data on combo boxes">
+      <option name="closed" value="true" />
+      <created>1694900326468</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1694900326468</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create ReportsView CostsView and CategoriesView" />
     <MESSAGE value="update workspace.xml" />
     <MESSAGE value=" create ReportsView CostsView and CategoriesView" />
     <MESSAGE value="clean main function" />
@@ -497,7 +496,8 @@
     <MESSAGE value="scroll table to bottom after saving a category" />
     <MESSAGE value="add CostsViewModel and replace currency text field with combo box and the amount to be with text field instead of combo box" />
     <MESSAGE value="present all categories in the costs view combo box" />
-    <option name="LAST_COMMIT_MESSAGE" value="present all categories in the costs view combo box" />
+    <MESSAGE value="build currency model and table and costs view model, show data on combo boxes" />
+    <option name="LAST_COMMIT_MESSAGE" value="build currency model and table and costs view model, show data on combo boxes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -511,11 +511,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java</url>
           <line>120</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CurrenciesDerbyDatabaseTableService.java</url>
@@ -546,16 +541,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java</url>
           <line>41</line>
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java</url>
