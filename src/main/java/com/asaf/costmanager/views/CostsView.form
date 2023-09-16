@@ -95,15 +95,12 @@
                       <foreground color="-593455"/>
                       <horizontalAlignment value="0"/>
                       <opaque value="true"/>
-                      <text value="Amount"/>
+                      <text value="Currency"/>
                     </properties>
                   </component>
-                  <component id="466db" class="javax.swing.JComboBox" binding="amountComboBox">
+                  <component id="41c4" class="javax.swing.JComboBox" binding="currencyComboBox">
                     <constraints border-constraint="South"/>
-                    <properties>
-                      <model/>
-                      <opaque value="true"/>
-                    </properties>
+                    <properties/>
                   </component>
                 </children>
               </grid>
@@ -155,15 +152,12 @@
                       <foreground color="-593455"/>
                       <horizontalAlignment value="0"/>
                       <opaque value="true"/>
-                      <text value="Currency"/>
+                      <text value="Amount"/>
                     </properties>
                   </component>
-                  <component id="9d139" class="javax.swing.JTextField" binding="currencyTextField">
+                  <component id="da37" class="javax.swing.JTextField" binding="amountTextField">
                     <constraints border-constraint="South"/>
-                    <properties>
-                      <opaque value="true"/>
-                      <text value=""/>
-                    </properties>
+                    <properties/>
                   </component>
                 </children>
               </grid>
