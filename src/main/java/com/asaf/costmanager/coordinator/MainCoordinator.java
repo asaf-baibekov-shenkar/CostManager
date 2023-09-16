@@ -1,14 +1,19 @@
 package com.asaf.costmanager.coordinator;
 
+import com.asaf.costmanager.MockDataCostManager;
 import com.asaf.costmanager.data_access_objects.DatabaseCategoryDataAccessObject;
 import com.asaf.costmanager.data_access_objects.DatabaseCostDataAccessObject;
+import com.asaf.costmanager.data_access_objects.DatabaseCurrencyDataAccessObject;
 import com.asaf.costmanager.data_access_objects.interfaces.IDataAccessObject;
+import com.asaf.costmanager.exceptions.CostManagerException;
 import com.asaf.costmanager.models.Category;
 import com.asaf.costmanager.models.Cost;
+import com.asaf.costmanager.models.Currency;
 import com.asaf.costmanager.services.database_connection_service.LocalDatabaseConnectionService;
 import com.asaf.costmanager.services.database_connection_service.interfaces.IDatabaseConnectionService;
 import com.asaf.costmanager.services.database_table_service.CategoriesDerbyDatabaseTableService;
 import com.asaf.costmanager.services.database_table_service.CostsDerbyDatabaseTableService;
+import com.asaf.costmanager.services.database_table_service.CurrenciesDerbyDatabaseTableService;
 import com.asaf.costmanager.services.database_table_service.interfaces.IDatabaseTableService;
 import com.asaf.costmanager.view_models.CategoriesViewModel;
 import com.asaf.costmanager.view_models.CostsViewModel;
@@ -26,7 +31,9 @@ public class MainCoordinator implements Coordinator {
 	
 	private @Nullable MainView mainView;
 	
+	private final IDatabaseConnectionService databaseConnectionService;
 	private final IDatabaseTableService<Cost> costsService;
+	private final IDatabaseTableService<Currency> currenciesService;
 	private final IDatabaseTableService<Category> categoriesService;
 	private final CompositeDisposable compositeDisposable;
 	private final ArrayList<Coordinator> coordinators;
@@ -34,9 +41,9 @@ public class MainCoordinator implements Coordinator {
 	public MainCoordinator() {
 		this.coordinators = new ArrayList<>();
 		this.compositeDisposable = new CompositeDisposable();
-		IDatabaseConnectionService databaseConnectionService = new LocalDatabaseConnectionService("CostManagerDatabase");
-		databaseConnectionService.connectIfNeeded();
+		this.databaseConnectionService = new LocalDatabaseConnectionService("CostManagerDatabase");
 		this.costsService = new CostsDerbyDatabaseTableService(databaseConnectionService);
+		this.currenciesService = new CurrenciesDerbyDatabaseTableService(databaseConnectionService);
 		this.categoriesService = new CategoriesDerbyDatabaseTableService(databaseConnectionService);
 	}
 	
@@ -47,6 +54,7 @@ public class MainCoordinator implements Coordinator {
 	
 	@Override
 	public void start() {
+//		this.resetDatabase();
 //		Locale locale = Locale.forLanguageTag("he-IL");
 		Locale locale = null;
 		MainViewModel mainViewModel = new MainViewModel(locale);
@@ -75,20 +83,30 @@ public class MainCoordinator implements Coordinator {
 	private void showCostsView() {
 		if (this.mainView == null) return;
 		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
+		IDataAccessObject<Currency> currencyDAO = new DatabaseCurrencyDataAccessObject(this.currenciesService);
 		IDataAccessObject<Category> categoryDAO = new DatabaseCategoryDataAccessObject(this.categoriesService);
-		CostsViewModel costsViewModel = new CostsViewModel(costsDAO, categoryDAO);
+		CostsViewModel costsViewModel = new CostsViewModel(costsDAO, currencyDAO, categoryDAO);
 		this.mainView.activateCostsView(costsViewModel);
 	}
 	
 	private void showCategoriesView() {
 		if (this.mainView == null) return;
-		try {
-			this.categoriesService.createTableIfNotExist();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		IDataAccessObject<Category> categoryDAO = new DatabaseCategoryDataAccessObject(this.categoriesService);
 		CategoriesViewModel categoriesViewModel = new CategoriesViewModel(categoryDAO);
 		this.mainView.activateCategoriesView(categoriesViewModel);
+	}
+	
+	private void resetDatabase() {
+		MockDataCostManager mockDataCostManager = new MockDataCostManager(
+			this.categoriesService,
+			this.currenciesService,
+			this.costsService
+		);
+		try {
+			this.databaseConnectionService.dropDatabaseIfExists();
+			mockDataCostManager.createMockData();
+		} catch (CostManagerException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

@@ -10,13 +10,13 @@ public class Cost {
 	
 	private double total_cost;
 	
-	private String currency;
+	private Currency currency;
 	
 	private String description;
 	
 	private Date date;
 	
-	public Cost(Category category, double total_cost, String currency, String description, Date date) {
+	public Cost(Category category, Currency currency, double total_cost, String description, Date date) {
 		this.id = -1;
 		setCategory(category);
 		setTotalCost(total_cost);
@@ -25,7 +25,7 @@ public class Cost {
 		setDate(date);
 	}
 	
-	public Cost(int id, Category category, double total_cost, String currency, String description, Date date) {
+	public Cost(int id, Category category, Currency currency, double total_cost, String description, Date date) {
 		setId(id);
 		setCategory(category);
 		setTotalCost(total_cost);
@@ -64,13 +64,11 @@ public class Cost {
 		this.total_cost = total_cost;
 	}
 	
-	public String getCurrency() {
+	public Currency getCurrency() {
 		return currency;
 	}
 	
-	public void setCurrency(String currency) {
-		if (currency == null || currency.trim().isEmpty())
-			throw new IllegalArgumentException("Currency cannot be null or empty");
+	public void setCurrency(Currency currency) {
 		this.currency = currency;
 	}
 	
