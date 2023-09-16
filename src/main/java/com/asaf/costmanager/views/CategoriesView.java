@@ -2,6 +2,7 @@ package com.asaf.costmanager.views;
 
 import com.asaf.costmanager.models.Category;
 import com.asaf.costmanager.view_models.CategoriesViewModel;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -15,6 +16,8 @@ public class CategoriesView implements ActionListener {
 	
 	public CategoriesViewModel viewModel;
 	
+	private final CompositeDisposable compositeDisposable;
+	
 	private JPanel panel;
 	private JTextField categoryTextField;
 	private JButton saveButton;
@@ -23,17 +26,15 @@ public class CategoriesView implements ActionListener {
 	
 	public CategoriesView(CategoriesViewModel viewModel) {
 		this.viewModel = viewModel;
-		this.setupViews();
+		this.compositeDisposable = new CompositeDisposable();
+		
+		this.setupCategoriesTable();
 		this.setupListeners();
+		this.setupRx();
 	}
 	
 	public JPanel getPanel() {
 		return panel;
-	}
-	
-	private void setupViews() {
-		this.setupCategoriesTable();
-		this.setupListeners();
 	}
 	
 	private void setupCategoriesTable() {
@@ -57,6 +58,22 @@ public class CategoriesView implements ActionListener {
 	private void setupListeners() {
 		this.saveButton.addActionListener(this);
 		this.deleteCategoriesButton.addActionListener(this);
+	}
+	
+	private void setupRx() {
+		this.compositeDisposable.add(
+			this.viewModel
+				.updateCategoryObservable()
+				.subscribe((databaseEvent) -> {
+					switch (databaseEvent) {
+						case RECORD_SAVED -> {
+							this.setupCategoriesTable();
+							this.categoryTextField.setText("");
+						}
+						case RECORD_DELETED -> this.setupCategoriesTable();
+					}
+				})
+		);
 	}
 	
 	private DefaultTableModel createTableModel() {
@@ -124,7 +141,6 @@ public class CategoriesView implements ActionListener {
 			for (int i = 0; i < tableModel.getRowCount(); i++)
 				if ((Boolean) tableModel.getValueAt(i, 0))
 					this.viewModel.deleteCategory((Integer) tableModel.getValueAt(i, 1));
-			this.setupCategoriesTable();
 		}
 	}
 }

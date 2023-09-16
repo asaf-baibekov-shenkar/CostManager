@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="save delete and present categories">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CategoriesViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCategoryDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCategoryDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CategoriesViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CategoriesViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,7 @@
       <workItem from="1694162667874" duration="38965000" />
       <workItem from="1694586785400" duration="22400000" />
       <workItem from="1694803399054" duration="848000" />
-      <workItem from="1694804258886" duration="4085000" />
+      <workItem from="1694804258886" duration="5793000" />
     </task>
     <task id="LOCAL-00001" summary="maven install jgoodies-forms">
       <option name="closed" value="true" />
@@ -420,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694854841437</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="save delete and present categories">
+      <option name="closed" value="true" />
+      <created>1694854878710</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1694854878710</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,5 +459,26 @@
     <MESSAGE value="better implementation for the coordinator pattern" />
     <MESSAGE value="save delete and present categories" />
     <option name="LAST_COMMIT_MESSAGE" value="save delete and present categories" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CategoriesViewModel.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
