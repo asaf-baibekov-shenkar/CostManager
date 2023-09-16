@@ -69,6 +69,7 @@ public class CategoriesView implements ActionListener {
 						case RECORD_SAVED -> {
 							this.setupCategoriesTable();
 							this.categoryTextField.setText("");
+							this.scrollTableToBottom();
 						}
 						case RECORD_DELETED -> this.setupCategoriesTable();
 					}
@@ -130,6 +131,12 @@ public class CategoriesView implements ActionListener {
 				return this;
 			}
 		};
+	}
+	
+	private void scrollTableToBottom() {
+		int lastRow = this.categoriesTable.getRowCount() - 1;
+		Rectangle rectangle = this.categoriesTable.getCellRect(lastRow, 0, true);
+		this.categoriesTable.scrollRectToVisible(rectangle);
 	}
 	
 	@Override
