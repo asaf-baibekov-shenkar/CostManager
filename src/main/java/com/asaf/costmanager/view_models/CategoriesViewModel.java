@@ -23,6 +23,7 @@ public class CategoriesViewModel {
 	}
 	
 	public void saveCategory(String text) {
+		if (text == null || text.trim().isEmpty()) return;
 		this.categoryDAO.create(new Category(text));
 		this.updateCategoriesSubject.onNext(DatabaseEvent.RECORD_SAVED);
 	}
