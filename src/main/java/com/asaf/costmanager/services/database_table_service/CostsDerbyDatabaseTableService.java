@@ -188,7 +188,7 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 					costs.description,
 					costs.date,
 					categories.id AS category_id,
-					categories.name AS category_name
+					categories.name AS category_name,
 					currencies.id AS currency_id,
 					currencies.name AS currency_name,
 					currencies.symbol AS currency_symbol

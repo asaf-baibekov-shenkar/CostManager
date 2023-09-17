@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="build currency model and table and costs view model, show data on combo boxes">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="amountTextField will allow only numeric characters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -465,14 +467,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694900326468</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="amountTextField will allow only numeric characters">
+      <option name="closed" value="true" />
+      <created>1694900833720</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1694900833720</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update workspace.xml" />
     <MESSAGE value=" create ReportsView CostsView and CategoriesView" />
     <MESSAGE value="clean main function" />
     <MESSAGE value="install RxJava" />
@@ -497,36 +506,12 @@
     <MESSAGE value="add CostsViewModel and replace currency text field with combo box and the amount to be with text field instead of combo box" />
     <MESSAGE value="present all categories in the costs view combo box" />
     <MESSAGE value="build currency model and table and costs view model, show data on combo boxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="build currency model and table and costs view model, show data on combo boxes" />
+    <MESSAGE value="amountTextField will allow only numeric characters" />
+    <option name="LAST_COMMIT_MESSAGE" value="amountTextField will allow only numeric characters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CurrenciesDerbyDatabaseTableService.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CurrenciesDerbyDatabaseTableService.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CurrenciesDerbyDatabaseTableService.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CategoriesDerbyDatabaseTableService.java</url>
           <line>36</line>
@@ -538,49 +523,14 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/data_access_objects/DatabaseCostDataAccessObject.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="58" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java</url>
+          <line>181</line>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
