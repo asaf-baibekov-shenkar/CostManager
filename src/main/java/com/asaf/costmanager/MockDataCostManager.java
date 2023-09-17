@@ -40,24 +40,15 @@ public class MockDataCostManager {
 	}
 	
 	/**
-	 * Creates mock data and inserts it into the database.
+	 * Initializes the database by creating the tables if they don't exist.
+	 * If the tables already exist, this method does nothing.
 	 *
 	 * @throws CostManagerException if an exception occurs while interacting with the database.
 	 */
-	public void createMockData() throws CostManagerException {
+	public void initDatabase() throws CostManagerException {
 		this.categoryTableService.createTableIfNotExist();
 		this.currencyTableService.createTableIfNotExist();
 		this.costTableService.createTableIfNotExist();
-		
-		List<Category> categories = Arrays.asList(
-			new Category("Food"),
-			new Category("Clothes"),
-			new Category("Entertainment"),
-			new Category("Gadgets"),
-			new Category("Transportation")
-		);
-		for (Category category : categories)
-			this.categoryTableService.insertRecord(category);
 		
 		List<Currency> currencies = Arrays.asList(
 			new Currency("ILS", "₪"),
@@ -70,6 +61,27 @@ public class MockDataCostManager {
 		);
 		for (Currency currency : currencies)
 			this.currencyTableService.insertRecord(currency);
+	}
+	
+	/**
+	 * Creates mock data and inserts it into the database.
+	 *
+	 * @throws CostManagerException if an exception occurs while interacting with the database.
+	 */
+	public void createMockData() throws CostManagerException {
+		this.initDatabase();
+		
+		List<Category> categories = Arrays.asList(
+			new Category("Food"),
+			new Category("Clothes"),
+			new Category("Entertainment"),
+			new Category("Gadgets"),
+			new Category("Transportation")
+		);
+		for (Category category : categories)
+			this.categoryTableService.insertRecord(category);
+		
+		List<Currency> currencies = this.currencyTableService.fetchRecords();
 		
 		List<Cost> costs = Arrays.asList(
 			new Cost(categories.get(0), currencies.get(0), 20, "Burger", getDate(2021, Month.MARCH, 1)),

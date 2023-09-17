@@ -60,7 +60,7 @@ public class MainCoordinator implements Coordinator {
 		this.currenciesService = new CurrenciesDerbyDatabaseTableService(databaseConnectionService);
 		this.categoriesService = new CategoriesDerbyDatabaseTableService(databaseConnectionService);
 		
-//		this.resetDatabase();
+		this.initDatabase();
 		
 		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
 		IDataAccessObject<Currency> currencyDAO = new DatabaseCurrencyDataAccessObject(this.currenciesService);
@@ -156,6 +156,22 @@ public class MainCoordinator implements Coordinator {
 		try {
 			this.databaseConnectionService.dropDatabaseIfExists();
 			mockDataCostManager.createMockData();
+		} catch (CostManagerException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	/**
+	 * Creates the database tables if they don't exist.
+	 */
+	private void initDatabase() {
+		MockDataCostManager mockDataCostManager = new MockDataCostManager(
+			this.categoriesService,
+			this.currenciesService,
+			this.costsService
+		);
+		try {
+			mockDataCostManager.initDatabase();
 		} catch (CostManagerException e) {
 			throw new RuntimeException(e);
 		}
