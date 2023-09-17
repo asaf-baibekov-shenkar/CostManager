@@ -57,12 +57,22 @@ public class MainCoordinator implements Coordinator {
 		this.categoriesViewModel = new CategoriesViewModel(categoryDAO);
 		this.costsViewModel = new CostsViewModel(costsDAO, currencyDAO, categoryDAO);
 		this.reportsViewModel = new ReportsViewModel(costsDAO);
-		
+		this.setupRx();
+	}
+	
+	private void setupRx() {
 		this.compositeDisposable.add(
 			this.categoriesViewModel
 				.updateCategoryObservable()
 				.subscribe((databaseEvent) -> {
 					this.costsViewModel.updateCategories();
+				})
+		);
+		this.compositeDisposable.add(
+			this.costsViewModel
+				.getCostsObservable()
+				.subscribe((costs) -> {
+					this.reportsViewModel.updateCostsReport(null, null, null);
 				})
 		);
 	}
@@ -74,7 +84,6 @@ public class MainCoordinator implements Coordinator {
 	
 	@Override
 	public void start() {
-//		this.resetDatabase();
 //		Locale locale = Locale.forLanguageTag("he-IL");
 		Locale locale = null;
 		MainViewModel mainViewModel = new MainViewModel(locale);

@@ -20,14 +20,14 @@ public class ReportsViewModel {
 	public ReportsViewModel(IDataAccessObject<Cost> costsDAO) {
 		this.costsDAO = costsDAO;
 		this.costsReportBehaviorSubject = BehaviorSubject.create();
-		this.getCostsReport(null, null, null);
+		this.updateCostsReport(null, null, null);
 	}
 	
 	public Observable<List<Cost>> getCostsReportsObservable() {
 		return this.costsReportBehaviorSubject.hide();
 	}
 	
-	public void getCostsReport(@Nullable Integer year, @Nullable Integer month, @Nullable Integer day) {
+	public void updateCostsReport(@Nullable Integer year, @Nullable Integer month, @Nullable Integer day) {
 		List<Cost> costsStream = this.costsDAO.readAll()
 			.stream()
 			.filter((cost) -> {

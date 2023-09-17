@@ -7,6 +7,7 @@ import com.asaf.costmanager.models.Cost;
 import com.asaf.costmanager.models.Currency;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
+import io.reactivex.rxjava3.subjects.PublishSubject;
 
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,7 @@ public class CostsViewModel {
 	private List<Currency> currencies;
 	
 	private final BehaviorSubject<List<Category>> categoriesBehaviorSubject;
+	private final PublishSubject<List<Cost>> costsPublishSubject;
 	
 	public CostsViewModel(
 		IDataAccessObject<Cost> costsDOA,
@@ -31,11 +33,16 @@ public class CostsViewModel {
 		this.categoriesDOA = categoriesDOA;
 		this.currencies = this.currenciesDOA.readAll();
 		this.categoriesBehaviorSubject = BehaviorSubject.create();
+		this.costsPublishSubject = PublishSubject.create();
 		this.updateCategories();
 	}
 	
 	public Observable<List<Category>> getCategoriesObservable() {
 		return this.categoriesBehaviorSubject.hide();
+	}
+	
+	public Observable<List<Cost>> getCostsObservable() {
+		return this.costsPublishSubject.hide();
 	}
 	
 	public Category getCategoryAt(int index) {
@@ -65,6 +72,7 @@ public class CostsViewModel {
 			throw new CostManagerException("Invalid description");
 		Cost cost = new Cost(this.getCategoryAt(categoryIndex), this.currencies.get(currencyIndex), amount, description, new Date());
 		this.costsDOA.create(cost);
+		this.costsPublishSubject.onNext(this.costsDOA.readAll());
 	}
 	
 	public void updateCategories() {
