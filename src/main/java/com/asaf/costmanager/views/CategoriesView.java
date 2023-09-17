@@ -2,10 +2,12 @@ package com.asaf.costmanager.views;
 
 import com.asaf.costmanager.models.Category;
 import com.asaf.costmanager.view_models.CategoriesViewModel;
+import com.asaf.costmanager.views.table_cell_renderers.CenterTableCellRenderer;
+import com.asaf.costmanager.views.table_cell_renderers.CheckboxTableCellRenderer;
+import com.asaf.costmanager.views.table_cell_renderers.HeaderTableCellRenderer;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -44,11 +46,11 @@ public class CategoriesView implements ActionListener {
 			categoriesTableModel.addRow(new Object[] { false, category.getId(), category.getName() });
 		this.categoriesTable.setModel(categoriesTableModel);
 		
-		this.categoriesTable.getColumnModel().getColumn(0).setCellRenderer(this.createCheckBoxRenderer());
+		this.categoriesTable.getColumnModel().getColumn(0).setCellRenderer(new CheckboxTableCellRenderer());
 		for (int i = 1; i < this.categoriesTable.getColumnCount(); i++)
-			this.categoriesTable.getColumnModel().getColumn(i).setCellRenderer(this.createCenterRenderer());
+			this.categoriesTable.getColumnModel().getColumn(i).setCellRenderer(new CenterTableCellRenderer());
 		for (int i = 0; i < this.categoriesTable.getModel().getColumnCount(); i++)
-			this.categoriesTable.getColumnModel().getColumn(i).setHeaderRenderer(this.createHeaderRenderer());
+			this.categoriesTable.getColumnModel().getColumn(i).setHeaderRenderer(new HeaderTableCellRenderer());
 		
 		this.categoriesTable.setGridColor(Color.BLACK);
 		this.categoriesTable.setShowHorizontalLines(true);
@@ -92,43 +94,6 @@ public class CategoriesView implements ActionListener {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return column == 0;
-			}
-		};
-	}
-	
-	private DefaultTableCellRenderer createCheckBoxRenderer() {
-		return new DefaultTableCellRenderer() {
-			@Override
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-				JCheckBox checkBox = new JCheckBox();
-				checkBox.setSelected((Boolean) value);
-				checkBox.setHorizontalAlignment(JLabel.CENTER);
-				checkBox.setBackground(Color.WHITE);
-				return checkBox;
-			}
-		};
-	}
-	
-	private DefaultTableCellRenderer createCenterRenderer() {
-		return new DefaultTableCellRenderer() {
-			@Override
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-				super.getTableCellRendererComponent(table, value, false, hasFocus, row, column);
-				setHorizontalAlignment(JLabel.CENTER);
-				return this;
-			}
-		};
-	}
-	
-	private DefaultTableCellRenderer createHeaderRenderer() {
-		return new DefaultTableCellRenderer() {
-			@Override
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-				super.getTableCellRendererComponent(table, value, false, hasFocus, row, column);
-				setHorizontalAlignment(JLabel.CENTER);
-				setBackground(Color.BLACK);
-				setForeground(Color.WHITE);
-				return this;
 			}
 		};
 	}

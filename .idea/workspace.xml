@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="added input validation for day, month, year in ReportsView.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/ReportsViewModel.java" afterDir="false" />
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="reorganize fields">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/table_cell_renderers/CenterTableCellRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/table_cell_renderers/CheckboxTableCellRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/table_cell_renderers/HeaderTableCellRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/ReportsViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/ReportsViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CategoriesView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,14 +117,6 @@
       <workItem from="1694586785400" duration="22400000" />
       <workItem from="1694803399054" duration="848000" />
       <workItem from="1694804258886" duration="5946000" />
-    </task>
-    <task id="LOCAL-00001" summary="maven install jgoodies-forms">
-      <option name="closed" value="true" />
-      <created>1693683907900</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1693683907900</updated>
     </task>
     <task id="LOCAL-00002" summary="maven install derby">
       <option name="closed" value="true" />
@@ -500,15 +494,29 @@
       <option name="project" value="LOCAL" />
       <updated>1694946340921</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="craete ReportsViewModel">
+      <option name="closed" value="true" />
+      <created>1694946778536</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1694946778536</updated>
+    </task>
+    <task id="LOCAL-00050" summary="reorganize fields">
+      <option name="closed" value="true" />
+      <created>1694946828821</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1694946828822</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="handle locale and orientation" />
-    <MESSAGE value="activate content view when NavigationType is activated" />
     <MESSAGE value="build layout in ReportsView.form" />
     <MESSAGE value="wrap JTable inside JScrollPane" />
     <MESSAGE value="change buttons look and feel, font size, and emojis" />
@@ -532,7 +540,9 @@
     <MESSAGE value="save new cost" />
     <MESSAGE value="remove topView field" />
     <MESSAGE value="added input validation for day, month, year in ReportsView." />
-    <option name="LAST_COMMIT_MESSAGE" value="added input validation for day, month, year in ReportsView." />
+    <MESSAGE value="craete ReportsViewModel" />
+    <MESSAGE value="reorganize fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorganize fields" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -546,11 +556,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_connection_service/LocalDatabaseConnectionService.java</url>
           <line>31</line>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/CostsView.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/services/database_table_service/CostsDerbyDatabaseTableService.java</url>

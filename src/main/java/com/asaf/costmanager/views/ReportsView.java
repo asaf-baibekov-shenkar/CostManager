@@ -1,13 +1,22 @@
 package com.asaf.costmanager.views;
 
+import com.asaf.costmanager.models.Cost;
 import com.asaf.costmanager.view_models.ReportsViewModel;
+import com.asaf.costmanager.views.table_cell_renderers.CenterTableCellRenderer;
+import com.asaf.costmanager.views.table_cell_renderers.HeaderTableCellRenderer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.Arrays;
+import java.util.List;
 
 public class ReportsView {
 	
 	private final ReportsViewModel viewModel;
+	
+	private final CompositeDisposable compositeDisposable;
 	
 	private JPanel panel;
 	private JTextField yearTextField;
@@ -18,9 +27,11 @@ public class ReportsView {
 	
 	public ReportsView(ReportsViewModel viewModel) {
 		this.viewModel = viewModel;
+		this.compositeDisposable = new CompositeDisposable();
 		
 		this.setupViews();
 		this.setupListeners();
+		this.setupRx();
 	}
 	
 	public JPanel getPanel() {
@@ -28,8 +39,12 @@ public class ReportsView {
 	}
 	
 	private void setupViews() {
-		Arrays.asList(this.yearTextField, this.yearTextField, this.dayTextField)
-			.forEach((textField) -> textField.setTransferHandler(null));
+		Arrays.asList(this.yearTextField, this.monthTextField, this.dayTextField)
+			.forEach((textField) -> {
+				textField.setTransferHandler(null);
+				textField.setHorizontalAlignment(JTextField.CENTER);
+			});
+		
 	}
 	
 	private void setupListeners() {
@@ -68,5 +83,37 @@ public class ReportsView {
 			evt.consume();
 			textField.setText(String.valueOf(maxValue));
 		}
+	}
+	
+	private void setupRx() {
+		this.compositeDisposable.add(
+			this.viewModel
+				.getCostsReportsObservable()
+				.subscribe(this::refreshTable)
+		);
+	}
+	
+	private void refreshTable(List<Cost> costs) {
+		String[] columnNames = {"ID", "Date", "Category", "Description", "Cost"};
+		Object[][] data = costs
+			.stream()
+			.map(cost -> new Object[] {
+				cost.getId(),
+				cost.getDate().toString(),
+				cost.getCategory().getName(),
+				cost.getDescription(),
+				cost.getTotalCost() + cost.getCurrency().getSymbol()
+			})
+			.toArray(Object[][]::new);
+		this.reportsTable.setModel(new DefaultTableModel(data, columnNames));
+		
+		for (int i = 0; i < this.reportsTable.getModel().getColumnCount(); i++)
+			this.reportsTable.getColumnModel().getColumn(i).setHeaderRenderer(new HeaderTableCellRenderer());
+		for (int i = 0; i < this.reportsTable.getColumnCount(); i++)
+			this.reportsTable.getColumnModel().getColumn(i).setCellRenderer(new CenterTableCellRenderer());
+		
+		this.reportsTable.setGridColor(Color.BLACK);
+		this.reportsTable.setShowHorizontalLines(true);
+		this.reportsTable.setShowVerticalLines(true);
 	}
 }
