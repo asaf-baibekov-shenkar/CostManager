@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * View class for managing the categories in the application.
+ */
 public class CategoriesView implements ActionListener {
 	
 	public CategoriesViewModel viewModel;
@@ -26,6 +29,11 @@ public class CategoriesView implements ActionListener {
 	private JTable categoriesTable;
 	private JButton deleteCategoriesButton;
 	
+	/**
+	 * Constructor for the CategoriesView.
+	 *
+	 * @param viewModel the view model for the categories view.
+	 */
 	public CategoriesView(CategoriesViewModel viewModel) {
 		this.viewModel = viewModel;
 		this.compositeDisposable = new CompositeDisposable();
@@ -35,10 +43,18 @@ public class CategoriesView implements ActionListener {
 		this.setupRx();
 	}
 	
+	/**
+	 * Returns the main panel for the categories view.
+	 *
+	 * @return the main panel for the categories view.
+	 */
 	public JPanel getPanel() {
 		return panel;
 	}
 	
+	/**
+	 * Sets up the categories table.
+	 */
 	private void setupCategoriesTable() {
 		DefaultTableModel categoriesTableModel = this.createTableModel();
 		List<Category> categories = this.viewModel.getAllCategories();
@@ -57,11 +73,17 @@ public class CategoriesView implements ActionListener {
 		this.categoriesTable.setShowVerticalLines(true);
 	}
 	
+	/**
+	 * Sets up the action listeners for the components in the categories view.
+	 */
 	private void setupListeners() {
 		this.saveButton.addActionListener(this);
 		this.deleteCategoriesButton.addActionListener(this);
 	}
 	
+	/**
+	 * Sets up the reactive streams for the categories view.
+	 */
 	private void setupRx() {
 		this.compositeDisposable.add(
 			this.viewModel
@@ -79,6 +101,11 @@ public class CategoriesView implements ActionListener {
 		);
 	}
 	
+	/**
+	 * Creates a table model for the categories table.
+	 *
+	 * @return a table model for the categories table.
+	 */
 	private DefaultTableModel createTableModel() {
 		return new DefaultTableModel(new String[] {"Select", "ID", "Name"}, 0) {
 			@Override
@@ -98,12 +125,20 @@ public class CategoriesView implements ActionListener {
 		};
 	}
 	
+	/**
+	 * Scrolls the categories table to the bottom.
+	 */
 	private void scrollTableToBottom() {
 		int lastRow = this.categoriesTable.getRowCount() - 1;
 		Rectangle rectangle = this.categoriesTable.getCellRect(lastRow, 0, true);
 		this.categoriesTable.scrollRectToVisible(rectangle);
 	}
 	
+	/**
+	 * Handles the actions for the components in the categories view.
+	 *
+	 * @param e the action event.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.saveButton)

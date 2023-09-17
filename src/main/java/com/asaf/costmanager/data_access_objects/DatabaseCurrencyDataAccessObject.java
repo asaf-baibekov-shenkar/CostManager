@@ -7,14 +7,30 @@ import com.asaf.costmanager.services.database_table_service.interfaces.IDatabase
 
 import java.util.List;
 
+/**
+ * Data Access Object for Currencies.
+ * <p>
+ * This class provides an implementation for the IDataAccessObject interface for Currency objects.
+ * </p>
+ */
 public class DatabaseCurrencyDataAccessObject implements IDataAccessObject<Currency> {
 	
 	private final IDatabaseTableService<Currency> currenciesDatabaseTableService;
 	
+	/**
+	 * Constructor for DatabaseCurrencyDataAccessObject.
+	 *
+	 * @param currenciesDatabaseTableService The database table service for currencies.
+	 */
 	public DatabaseCurrencyDataAccessObject(IDatabaseTableService<Currency> currenciesDatabaseTableService) {
 		this.currenciesDatabaseTableService = currenciesDatabaseTableService;
 	}
 	
+	/**
+	 * Create a new currency.
+	 *
+	 * @param currency The currency to be created.
+	 */
 	@Override
 	public void create(Currency currency) {
 		try {
@@ -24,6 +40,12 @@ public class DatabaseCurrencyDataAccessObject implements IDataAccessObject<Curre
 		}
 	}
 	
+	/**
+	 * Read a currency by its id.
+	 *
+	 * @param id The id of the currency to be read.
+	 * @return The currency with the specified id.
+	 */
 	@Override
 	public Currency read(int id) {
 		try {
@@ -33,6 +55,11 @@ public class DatabaseCurrencyDataAccessObject implements IDataAccessObject<Curre
 		}
 	}
 	
+	/**
+	 * Read all currencies.
+	 *
+	 * @return A list of all currencies.
+	 */
 	@Override
 	public List<Currency> readAll() {
 		try {
@@ -42,6 +69,12 @@ public class DatabaseCurrencyDataAccessObject implements IDataAccessObject<Curre
 		}
 	}
 	
+	/**
+	 * Update an existing currency.
+	 *
+	 * @param id The id of the currency to be updated.
+	 * @param category The updated currency.
+	 */
 	@Override
 	public void update(int id, Currency category) {
 		try {
@@ -51,6 +84,12 @@ public class DatabaseCurrencyDataAccessObject implements IDataAccessObject<Curre
 		}
 	}
 	
+	/**
+	 * Delete a currency by its id.
+	 *
+	 * @param id The id of the currency to be deleted.
+	 * @return The deleted currency.
+	 */
 	@Override
 	public Currency delete(int id) {
 		try {

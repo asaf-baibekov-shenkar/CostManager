@@ -11,14 +11,26 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of IDatabaseTableService for the 'currencies' table.
+ * This service is responsible for creating, dropping, and manipulating the 'currencies' table in the database.
+ * It uses the database connection service to connect to the database and performs operations on the 'currencies' table.
+ */
 public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableService<Currency> {
 	
 	private final IDatabaseConnectionService databaseConnectionService;
 	
+	/**
+	 * Constructor for CurrenciesDerbyDatabaseTableService.
+	 * @param databaseConnectionService an implementation of IDatabaseConnectionService to manage database connections.
+	 */
 	public CurrenciesDerbyDatabaseTableService(IDatabaseConnectionService databaseConnectionService) {
 		this.databaseConnectionService = databaseConnectionService;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void createTable() throws CostManagerException {
 		try (
@@ -39,6 +51,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void createTableIfNotExist() throws CostManagerException {
 		try {
@@ -49,6 +64,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropTable() throws CostManagerException {
 		try (
@@ -65,6 +83,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropTableIfExist() throws CostManagerException {
 		try {
@@ -75,6 +96,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void insertRecord(Currency currency) throws CostManagerException {
 		try (
@@ -97,6 +121,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void updateRecord(int id, Currency currency) throws CostManagerException {
 		try (
@@ -116,6 +143,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Currency fetchRecord(int id) throws CostManagerException {
 		try (
@@ -137,6 +167,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Currency> fetchRecords() throws CostManagerException {
 		List<Currency> records = new ArrayList<>();
@@ -164,6 +197,9 @@ public class CurrenciesDerbyDatabaseTableService implements IDatabaseTableServic
 		return records;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Currency deleteRecord(int id) throws CostManagerException {
 		Currency cost = this.fetchRecord(id);

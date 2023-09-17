@@ -13,6 +13,9 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Reports section of the application.
+ */
 public class ReportsView {
 	
 	private final ReportsViewModel viewModel;
@@ -26,6 +29,11 @@ public class ReportsView {
 	private JButton submitButton;
 	private JTable reportsTable;
 	
+	/**
+	 * Constructor for ReportsView.
+	 *
+	 * @param viewModel the view model for the reports view.
+	 */
 	public ReportsView(ReportsViewModel viewModel) {
 		this.viewModel = viewModel;
 		this.compositeDisposable = new CompositeDisposable();
@@ -35,10 +43,18 @@ public class ReportsView {
 		this.setupRx();
 	}
 	
+	/**
+	 * Gets the main panel of the reports view.
+	 *
+	 * @return the main panel.
+	 */
 	public JPanel getPanel() {
 		return panel;
 	}
 	
+	/**
+	 * Sets up the views for the reports view.
+	 */
 	private void setupViews() {
 		Arrays.asList(this.yearTextField, this.monthTextField, this.dayTextField)
 			.forEach((textField) -> {
@@ -48,6 +64,9 @@ public class ReportsView {
 		
 	}
 	
+	/**
+	 * Sets up the action listeners for the components in the reports view.
+	 */
 	private void setupListeners() {
 		this.submitButton.addActionListener(e -> {
 			@Nullable Integer year = this.yearTextField.getText().isEmpty() ? null : Integer.parseInt(this.yearTextField.getText());
@@ -75,6 +94,14 @@ public class ReportsView {
 		});
 	}
 	
+	/**
+	 * Limits the input of the text fields to only numbers, backspace, and delete,
+	 * with a maximum value and maximum length.
+	 *
+	 * @param evt       the key event.
+	 * @param maxValue  the maximum value for the text field.
+	 * @param maxLength the maximum length for the text field.
+	 */
 	private void acceptNumbersOnly(java.awt.event.KeyEvent evt, int maxValue, int maxLength) {
 		char c = evt.getKeyChar();
 		boolean isNumber = (c >= '0') && (c <= '9');
@@ -92,6 +119,9 @@ public class ReportsView {
 		}
 	}
 	
+	/**
+	 * Sets up the reactive stream for the reports view.
+	 */
 	private void setupRx() {
 		this.compositeDisposable.add(
 			this.viewModel
@@ -100,6 +130,11 @@ public class ReportsView {
 		);
 	}
 	
+	/**
+	 * Refreshes the reports table with the given costs.
+	 *
+	 * @param costs the list of costs to be displayed.
+	 */
 	private void refreshTable(List<Cost> costs) {
 		String[] columnNames = {"ID", "Date", "Category", "Description", "Cost"};
 		Object[][] data = costs

@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Locale;
 
+/**
+ * Main user interface of the application.
+ */
 public class MainView implements ActionListener {
 	
 	private final MainViewModel viewModel;
@@ -28,6 +31,11 @@ public class MainView implements ActionListener {
 	private JButton reportsButton;
 	private JButton costsButton;
 	
+	/**
+	 * Constructor for MainView.
+	 *
+	 * @param viewModel the view model for the main view.
+	 */
 	public MainView(MainViewModel viewModel) {
 		this.viewModel = viewModel;
 		
@@ -48,6 +56,9 @@ public class MainView implements ActionListener {
 		this.setupListeners();
 	}
 	
+	/**
+	 * Sets up the views for the main view.
+	 */
 	private void setupViews() {
 		UIDefaults defaults = UIManager.getLookAndFeelDefaults();
 		defaults.put("Button.select", new Color(167, 168, 171));
@@ -60,12 +71,20 @@ public class MainView implements ActionListener {
 			});
 	}
 	
+	/**
+	 * Sets up the action listeners for the components in the main view.
+	 */
 	private void setupListeners() {
 		this.categoriesButton.addActionListener(this);
 		this.reportsButton.addActionListener(this);
 		this.costsButton.addActionListener(this);
 	}
 	
+	/**
+	 * Handles the actions for the components in the main view.
+	 *
+	 * @param e the action event.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.reportsButton)
@@ -76,6 +95,11 @@ public class MainView implements ActionListener {
 			this.viewModel.categoriesNavigationSelected();
 	}
 	
+	/**
+	 * Activates a button and sets the color based on the navigation type.
+	 *
+	 * @param navigationType the navigation type.
+	 */
 	private void activateButton(MainViewModel.NavigationType navigationType) {
 		Color selectedForegroundColor = Color.BLACK;
 		Color unselectedForegroundColor = new Color(255, 255, 255);
@@ -105,6 +129,11 @@ public class MainView implements ActionListener {
 		}
 	}
 	
+	/**
+	 * Activates the reports view.
+	 *
+	 * @param viewModel the view model for the reports view.
+	 */
 	public void activateReportsView(ReportsViewModel viewModel) {
 		this.activateButton(MainViewModel.NavigationType.Reports);
 		this.contentView.removeAll();
@@ -115,6 +144,11 @@ public class MainView implements ActionListener {
 		this.contentView.repaint();
 	}
 	
+	/**
+	 * Activates the costs view.
+	 *
+	 * @param viewModel the view model for the costs view.
+	 */
 	public void activateCostsView(CostsViewModel viewModel) {
 		this.activateButton(MainViewModel.NavigationType.Costs);
 		this.contentView.removeAll();
@@ -125,6 +159,11 @@ public class MainView implements ActionListener {
 		this.contentView.repaint();
 	}
 	
+	/**
+	 * Activates the categories view.
+	 *
+	 * @param viewModel the view model for the categories view.
+	 */
 	public void activateCategoriesView(CategoriesViewModel viewModel) {
 		this.activateButton(MainViewModel.NavigationType.Categories);
 		this.contentView.removeAll();

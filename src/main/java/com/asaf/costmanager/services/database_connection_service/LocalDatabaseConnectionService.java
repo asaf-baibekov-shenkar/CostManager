@@ -13,14 +13,29 @@ import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
+/**
+ * Implementation of the IDatabaseConnectionService interface for local databases.
+ * <p>
+ * This class manages the connection to a local database, and provides methods
+ * to drop the database.
+ * </p>
+ */
 public class LocalDatabaseConnectionService implements IDatabaseConnectionService {
 	private Connection connection;
 	private final String databaseName;
 	
+	/**
+	 * Constructs a LocalDatabaseConnectionService object.
+	 *
+	 * @param databaseName the name of the database.
+	 */
 	public LocalDatabaseConnectionService(String databaseName) {
 		this.databaseName = databaseName;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Connection connectIfNeeded() {
 		try {
@@ -34,6 +49,9 @@ public class LocalDatabaseConnectionService implements IDatabaseConnectionServic
 		return this.connection;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void disconnect() {
 		try {
@@ -44,6 +62,9 @@ public class LocalDatabaseConnectionService implements IDatabaseConnectionServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropDatabase() throws CostManagerException {
 		this.disconnect();
@@ -59,6 +80,9 @@ public class LocalDatabaseConnectionService implements IDatabaseConnectionServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropDatabaseIfExists() throws CostManagerException {
 		Path databasePath = Paths.get(databaseName);

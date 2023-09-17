@@ -1,5 +1,8 @@
 package com.asaf.costmanager.services.database_table_service.exceptions;
 
+/**
+ * Enumeration of possible error types for database table operations.
+ */
 public enum DatabaseTableErrorType {
 	TABLE_ALREADY_EXISTS,
 	TABLE_DOES_NOT_EXIST,

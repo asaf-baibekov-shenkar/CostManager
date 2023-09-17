@@ -17,14 +17,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service class for managing the 'costs' table in the Derby database.
+ * Implements IDatabaseTableService to manage records in the 'costs' table.
+ * Relies on IDatabaseConnectionService for database connections.
+ * The 'costs' table references the 'categories' and 'currencies' tables.
+ */
 public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cost> {
 	
 	private final IDatabaseConnectionService databaseConnectionService;
 	
+	
+	/**
+	 * Constructor for CostsDerbyDatabaseTableService.
+	 * @param databaseConnectionService an implementation of IDatabaseConnectionService to manage database connections.
+	 */
 	public CostsDerbyDatabaseTableService(IDatabaseConnectionService databaseConnectionService) {
 		this.databaseConnectionService = databaseConnectionService;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void createTable() throws CostManagerException {
 		try (
@@ -50,6 +64,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void createTableIfNotExist() throws CostManagerException {
 		try {
@@ -60,6 +77,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropTable() throws CostManagerException {
 		try (
@@ -74,6 +94,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropTableIfExist() throws CostManagerException {
 		try {
@@ -84,6 +107,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void insertRecord(Cost cost) throws CostManagerException {
 		try (
@@ -107,6 +133,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void updateRecord(int id, Cost cost) throws CostManagerException {
 		try (
@@ -131,6 +160,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Cost fetchRecord(int id) throws CostManagerException {
 		try (
@@ -175,6 +207,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Cost> fetchRecords() throws CostManagerException {
 		List<Cost> records = new ArrayList<>();
@@ -220,6 +255,9 @@ public class CostsDerbyDatabaseTableService implements IDatabaseTableService<Cos
 		return records;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Cost deleteRecord(int id) throws CostManagerException {
 		Cost cost = this.fetchRecord(id);

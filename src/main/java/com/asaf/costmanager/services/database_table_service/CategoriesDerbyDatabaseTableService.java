@@ -11,14 +11,28 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Implementation of the IDatabaseTableService interface for Category objects.
+ * This class manages the connection to a local database, specifically for the 'categories' table.
+ * It provides methods to create, drop, insert, update, fetch and delete records in the 'categories' table.
+ * The class leverages the database connection service to connect to the database as needed.
+ */
 public class CategoriesDerbyDatabaseTableService implements IDatabaseTableService<Category> {
 	
 	private final IDatabaseConnectionService databaseConnectionService;
 	
+	/**
+	 * Constructor for CategoriesDerbyDatabaseTableService.
+	 * @param databaseConnectionService an implementation of IDatabaseConnectionService to manage database connections.
+	 */
 	public CategoriesDerbyDatabaseTableService(IDatabaseConnectionService databaseConnectionService) {
 		this.databaseConnectionService = databaseConnectionService;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void createTable() throws CostManagerException {
 		try (
@@ -38,6 +52,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void createTableIfNotExist() throws CostManagerException {
 		try {
@@ -48,6 +65,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropTable() throws CostManagerException {
 		try (
@@ -64,6 +84,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dropTableIfExist() throws CostManagerException {
 		try {
@@ -74,6 +97,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void insertRecord(Category category) throws CostManagerException {
 		try (
@@ -95,6 +121,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void updateRecord(int id, Category category) throws CostManagerException {
 		try (
@@ -113,6 +142,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Category fetchRecord(int id) throws CostManagerException {
 		try (
@@ -133,6 +165,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Category> fetchRecords() throws CostManagerException {
 		List<Category> records = new ArrayList<>();
@@ -153,6 +188,9 @@ public class CategoriesDerbyDatabaseTableService implements IDatabaseTableServic
 		return records;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Category deleteRecord(int id) throws CostManagerException {
 		Category category = this.fetchRecord(id);

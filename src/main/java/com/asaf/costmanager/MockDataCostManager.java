@@ -4,7 +4,6 @@ import com.asaf.costmanager.exceptions.CostManagerException;
 import com.asaf.costmanager.models.Category;
 import com.asaf.costmanager.models.Cost;
 import com.asaf.costmanager.models.Currency;
-import com.asaf.costmanager.services.database_connection_service.interfaces.IDatabaseConnectionService;
 import com.asaf.costmanager.services.database_table_service.interfaces.IDatabaseTableService;
 
 import java.time.LocalDate;
@@ -14,12 +13,22 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class for creating mock data and inserting it into the database.
+ */
 public class MockDataCostManager {
 	
 	private final IDatabaseTableService<Category> categoryTableService;
 	private final IDatabaseTableService<Currency> currencyTableService;
 	private final IDatabaseTableService<Cost> costTableService;
 	
+	/**
+	 * Constructor for the MockDataCostManager class.
+	 *
+	 * @param categoryTableService service for interacting with the category table in the database.
+	 * @param currencyTableService service for interacting with the currency table in the database.
+	 * @param costTableService service for interacting with the cost table in the database.
+	 */
 	public MockDataCostManager(
 		IDatabaseTableService<Category> categoryTableService,
 		IDatabaseTableService<Currency> currencyTableService,
@@ -30,6 +39,11 @@ public class MockDataCostManager {
 		this.costTableService = costTableService;
 	}
 	
+	/**
+	 * Creates mock data and inserts it into the database.
+	 *
+	 * @throws CostManagerException if an exception occurs while interacting with the database.
+	 */
 	public void createMockData() throws CostManagerException {
 		this.categoryTableService.createTableIfNotExist();
 		this.currencyTableService.createTableIfNotExist();
@@ -72,6 +86,14 @@ public class MockDataCostManager {
 		
 	}
 	
+	/**
+	 * Helper method to convert a year, month, and day to a Date object.
+	 *
+	 * @param year the year.
+	 * @param month the month.
+	 * @param day the day.
+	 * @return the Date object.
+	 */
 	private static Date getDate(int year, Month month, int day) {
 		LocalDate localDate = LocalDate.of(year, month, day);
 		return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());

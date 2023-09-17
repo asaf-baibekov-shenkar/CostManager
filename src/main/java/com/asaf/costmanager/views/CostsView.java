@@ -11,6 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
+/**
+ * View class for managing the costs in the application.
+ */
 public class CostsView implements ActionListener {
 	
 	private final CostsViewModel viewModel;
@@ -24,6 +27,11 @@ public class CostsView implements ActionListener {
 	private JTextField descriptionTextField;
 	private JTextField amountTextField;
 	
+	/**
+	 * Constructor for the CostsView.
+	 *
+	 * @param viewModel the view model for the costs view.
+	 */
 	public CostsView(CostsViewModel viewModel) {
 		this.viewModel = viewModel;
 		this.compositeDisposable = new CompositeDisposable();
@@ -33,6 +41,9 @@ public class CostsView implements ActionListener {
 		this.setupRx();
 	}
 	
+	/**
+	 * Sets up the views for the costs view.
+	 */
 	private void setupViews() {
 		Arrays.asList(this.categoriesComboBox, this.currencyComboBox)
 			.forEach((comboBox) -> {
@@ -64,10 +75,16 @@ public class CostsView implements ActionListener {
 		});
 	}
 	
+	/**
+	 * Sets up the action listeners for the components in the costs view.
+	 */
 	private void setupListeners() {
 		this.saveButton.addActionListener(this);
 	}
 	
+	/**
+	 * Sets up the reactive streams for the costs view.
+	 */
 	private void setupRx() {
 		this.compositeDisposable.add(
 			this.viewModel
@@ -82,10 +99,20 @@ public class CostsView implements ActionListener {
 		);
 	}
 	
+	/**
+	 * Returns the main panel for the costs view.
+	 *
+	 * @return the main panel for the costs view.
+	 */
 	public JPanel getPanel() {
 		return panel;
 	}
 	
+	/**
+	 * Handles the actions for the components in the costs view.
+	 *
+	 * @param e the action event.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.saveButton) {

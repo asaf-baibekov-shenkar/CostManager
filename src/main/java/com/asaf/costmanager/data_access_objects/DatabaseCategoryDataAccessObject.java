@@ -7,14 +7,30 @@ import com.asaf.costmanager.services.database_table_service.interfaces.IDatabase
 
 import java.util.List;
 
+/**
+ * Data Access Object for Categories.
+ * <p>
+ * This class provides an implementation for the IDataAccessObject interface for Category objects.
+ * </p>
+ */
 public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Category> {
 	
 	private final IDatabaseTableService<Category> categoriesDatabaseTableService;
 	
+	/**
+	 * Constructor for DatabaseCategoryDataAccessObject.
+	 *
+	 * @param categoriesDatabaseTableService The database table service for categories.
+	 */
 	public DatabaseCategoryDataAccessObject(IDatabaseTableService<Category> categoriesDatabaseTableService) {
 		this.categoriesDatabaseTableService = categoriesDatabaseTableService;
 	}
 	
+	/**
+	 * Create a new category.
+	 *
+	 * @param category The category to be created.
+	 */
 	@Override
 	public void create(Category category) {
 		try {
@@ -24,6 +40,12 @@ public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Categ
 		}
 	}
 	
+	/**
+	 * Read a category by its id.
+	 *
+	 * @param id The id of the category to be read.
+	 * @return The category with the specified id.
+	 */
 	@Override
 	public Category read(int id) {
 		try {
@@ -33,6 +55,11 @@ public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Categ
 		}
 	}
 	
+	/**
+	 * Read all categories.
+	 *
+	 * @return A list of all categories.
+	 */
 	@Override
 	public List<Category> readAll() {
 		try {
@@ -42,6 +69,12 @@ public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Categ
 		}
 	}
 	
+	/**
+	 * Update an existing category.
+	 *
+	 * @param id The id of the category to be updated.
+	 * @param category The updated category.
+	 */
 	@Override
 	public void update(int id, Category category) {
 		try {
@@ -51,6 +84,12 @@ public class DatabaseCategoryDataAccessObject implements IDataAccessObject<Categ
 		}
 	}
 	
+	/**
+	 * Delete a category by its id.
+	 *
+	 * @param id The id of the category to be deleted.
+	 * @return The deleted category.
+	 */
 	@Override
 	public Category delete(int id) {
 		try {

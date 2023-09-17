@@ -28,6 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Main coordinator class implementing the Coordinator interface.
+ * <p>
+ * This class is responsible for managing the main application flow and coordinating between the view models and the views.
+ * </p>
+ */
 public class MainCoordinator implements Coordinator {
 	
 	private @Nullable MainView mainView;
@@ -43,6 +49,9 @@ public class MainCoordinator implements Coordinator {
 	private final CostsViewModel costsViewModel;
 	private final ReportsViewModel reportsViewModel;
 	
+	/**
+	 * Constructor for MainCoordinator.
+	 */
 	public MainCoordinator() {
 		this.coordinators = new ArrayList<>();
 		this.compositeDisposable = new CompositeDisposable();
@@ -50,6 +59,8 @@ public class MainCoordinator implements Coordinator {
 		this.costsService = new CostsDerbyDatabaseTableService(databaseConnectionService);
 		this.currenciesService = new CurrenciesDerbyDatabaseTableService(databaseConnectionService);
 		this.categoriesService = new CategoriesDerbyDatabaseTableService(databaseConnectionService);
+		
+//		this.resetDatabase();
 		
 		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
 		IDataAccessObject<Currency> currencyDAO = new DatabaseCurrencyDataAccessObject(this.currenciesService);
@@ -60,6 +71,9 @@ public class MainCoordinator implements Coordinator {
 		this.setupRx();
 	}
 	
+	/**
+	 * Sets up the RxJava observables and subscriptions for the view models.
+	 */
 	private void setupRx() {
 		this.compositeDisposable.add(
 			this.categoriesViewModel
@@ -73,11 +87,17 @@ public class MainCoordinator implements Coordinator {
 		);
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Coordinator> getCoordinators() {
 		return this.coordinators;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void start() {
 //		Locale locale = Locale.forLanguageTag("he-IL");
@@ -100,21 +120,33 @@ public class MainCoordinator implements Coordinator {
 		});
 	}
 	
+	/**
+	 * Shows the reports view.
+	 */
 	private void showReportsView() {
 		if (this.mainView == null) return;
 		this.mainView.activateReportsView(this.reportsViewModel);
 	}
 	
+	/**
+	 * Shows the costs view.
+	 */
 	private void showCostsView() {
 		if (this.mainView == null) return;
 		this.mainView.activateCostsView(this.costsViewModel);
 	}
 	
+	/**
+	 * Shows the categories view.
+	 */
 	private void showCategoriesView() {
 		if (this.mainView == null) return;
 		this.mainView.activateCategoriesView(this.categoriesViewModel);
 	}
 	
+	/**
+	 * Resets the database by dropping the existing database and creating mock data.
+	 */
 	private void resetDatabase() {
 		MockDataCostManager mockDataCostManager = new MockDataCostManager(
 			this.categoriesService,
