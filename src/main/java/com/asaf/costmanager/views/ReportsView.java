@@ -4,11 +4,14 @@ import com.asaf.costmanager.models.Cost;
 import com.asaf.costmanager.view_models.ReportsViewModel;
 import com.asaf.costmanager.views.table_cell_renderers.CenterTableCellRenderer;
 import com.asaf.costmanager.views.table_cell_renderers.HeaderTableCellRenderer;
+import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,6 +51,12 @@ public class ReportsView {
 	}
 	
 	private void setupListeners() {
+		this.submitButton.addActionListener(e -> {
+			@Nullable Integer year = this.yearTextField.getText().isEmpty() ? null : Integer.parseInt(this.yearTextField.getText());
+			@Nullable Integer month = this.monthTextField.getText().isEmpty() ? null : Integer.parseInt(this.monthTextField.getText());
+			@Nullable Integer day = this.dayTextField.getText().isEmpty() ? null : Integer.parseInt(this.dayTextField.getText());
+			this.viewModel.updateCostsReport(year, month, day);
+		});
 		this.dayTextField.addKeyListener(new java.awt.event.KeyAdapter() {
 			@Override
 			public void keyTyped(java.awt.event.KeyEvent evt) {
