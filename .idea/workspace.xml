@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="cells of the reports table disable editable option">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="create currencies only if table wasn't existed">
       <change afterPath="$PROJECT_DIR$/.idea/artifacts/Cost_Manager_jar.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +31,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "asaf-baibekov-shenkar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f9069bd4-04e5-4ebe-b5e4-f48629ba36a2" />
+        <option name="url" value="https://github.com/asaf-baibekov-shenkar/CostManager.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/lib/src.zip!/java.desktop/javax/swing/table/DefaultTableCellRenderer.java" root0="SKIP_INSPECTION" />
@@ -123,15 +137,7 @@
       <workItem from="1694586785400" duration="22400000" />
       <workItem from="1694803399054" duration="848000" />
       <workItem from="1694804258886" duration="5946000" />
-      <workItem from="1694974156355" duration="375000" />
-    </task>
-    <task id="LOCAL-00011" summary="when creating new record. set the given model from the parameter instead of returning a new model">
-      <option name="closed" value="true" />
-      <created>1694184008972</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1694184008972</updated>
+      <workItem from="1694974156355" duration="589000" />
     </task>
     <task id="LOCAL-00012" summary="create dropDatabase and dropDatabaseIfExists">
       <option name="closed" value="true" />
@@ -517,14 +523,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694972352220</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="create currencies only if table wasn't existed">
+      <option name="closed" value="true" />
+      <created>1694974615724</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1694974615725</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add combo boxes and text fields to the cost addition layout" />
     <MESSAGE value="build containers layout" />
     <MESSAGE value="build left container components layout" />
     <MESSAGE value="better implementation for the coordinator pattern" />
@@ -549,7 +562,8 @@
     <MESSAGE value="write comments" />
     <MESSAGE value="init database if not exist" />
     <MESSAGE value="cells of the reports table disable editable option" />
-    <option name="LAST_COMMIT_MESSAGE" value="cells of the reports table disable editable option" />
+    <MESSAGE value="create currencies only if table wasn't existed" />
+    <option name="LAST_COMMIT_MESSAGE" value="create currencies only if table wasn't existed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -558,6 +572,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java</url>
           <line>39</line>
           <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

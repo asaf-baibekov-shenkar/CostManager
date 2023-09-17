@@ -43,3 +43,8 @@ build/
 .idea/dataSources.local.xml
 CostManagerDatabase/
 derby.log
+
+### Build ###
+out/
+.idea/artifacts/
+src/main/resources/META-INF/
