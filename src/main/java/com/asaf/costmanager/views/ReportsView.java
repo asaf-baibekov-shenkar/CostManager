@@ -61,7 +61,6 @@ public class ReportsView {
 				textField.setTransferHandler(null);
 				textField.setHorizontalAlignment(JTextField.CENTER);
 			});
-		
 	}
 	
 	/**
@@ -147,7 +146,12 @@ public class ReportsView {
 				cost.getTotalCost() + cost.getCurrency().getSymbol()
 			})
 			.toArray(Object[][]::new);
-		this.reportsTable.setModel(new DefaultTableModel(data, columnNames));
+		this.reportsTable.setModel(new DefaultTableModel(data, columnNames) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		});
 		
 		for (int i = 0; i < this.reportsTable.getModel().getColumnCount(); i++)
 			this.reportsTable.getColumnModel().getColumn(i).setHeaderRenderer(new HeaderTableCellRenderer());

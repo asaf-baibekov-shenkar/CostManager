@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="write comments">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="init database if not exist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/MockDataCostManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" afterDir="false" />
     </list>
-    <list id="85919950-09ac-44bd-83fa-a1bea48de9bb" name="Changes by abrahemelnkeeb" comment="write comments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,14 +121,6 @@
       <workItem from="1694586785400" duration="22400000" />
       <workItem from="1694803399054" duration="848000" />
       <workItem from="1694804258886" duration="5946000" />
-    </task>
-    <task id="LOCAL-00009" summary="rename the Cost property sum to total_cost">
-      <option name="closed" value="true" />
-      <created>1694183690995</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1694183690995</updated>
     </task>
     <task id="LOCAL-00010" summary="fix cost table creation">
       <option name="closed" value="true" />
@@ -516,14 +506,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694969410904</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="init database if not exist">
+      <option name="closed" value="true" />
+      <created>1694972130825</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1694972130825</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix top view layout in ReportsView" />
     <MESSAGE value="build layout for CostsView.form" />
     <MESSAGE value="add combo boxes and text fields to the cost addition layout" />
     <MESSAGE value="build containers layout" />
@@ -548,7 +545,8 @@
     <MESSAGE value="filter costs by date" />
     <MESSAGE value="handle warnings" />
     <MESSAGE value="write comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="write comments" />
+    <MESSAGE value="init database if not exist" />
+    <option name="LAST_COMMIT_MESSAGE" value="init database if not exist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
