@@ -1,9 +1,9 @@
 package com.asaf.costmanager.views;
 
 import com.asaf.costmanager.exceptions.CostManagerException;
-import com.asaf.costmanager.models.Category;
 import com.asaf.costmanager.models.Currency;
 import com.asaf.costmanager.view_models.CostsViewModel;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +15,8 @@ public class CostsView implements ActionListener {
 	
 	private final CostsViewModel viewModel;
 	
+	private final CompositeDisposable compositeDisposable;
+	
 	private JPanel panel;
 	private JButton saveButton;
 	private JComboBox<String> categoriesComboBox;
@@ -24,9 +26,11 @@ public class CostsView implements ActionListener {
 	
 	public CostsView(CostsViewModel viewModel) {
 		this.viewModel = viewModel;
+		this.compositeDisposable = new CompositeDisposable();
 		
 		this.setupViews();
 		this.setupListeners();
+		this.setupRx();
 	}
 	
 	private void setupViews() {
@@ -37,13 +41,6 @@ public class CostsView implements ActionListener {
 				comboBox.setMinimumSize(size);
 				comboBox.setPreferredSize(size);
 			});
-		
-		DefaultComboBoxModel<String> categoriesModel = new DefaultComboBoxModel<>();
-		int categoriesCount = this.viewModel.getCategoriesCount();
-		for (int i = 0; i < categoriesCount; i++)
-			categoriesModel.addElement(this.viewModel.getCategoryAt(i).getName());
-			
-		this.categoriesComboBox.setModel(categoriesModel);
 		
 		DefaultComboBoxModel<String> currenciesModel = new DefaultComboBoxModel<>();
 		int currenciesCount = this.viewModel.getCurrenciesCount();
@@ -71,6 +68,20 @@ public class CostsView implements ActionListener {
 		this.saveButton.addActionListener(this);
 	}
 	
+	private void setupRx() {
+		this.compositeDisposable.add(
+			this.viewModel
+				.getCategoriesObservable()
+				.subscribe((databaseEvent) -> {
+					DefaultComboBoxModel<String> categoriesModel = new DefaultComboBoxModel<>();
+					int categoriesCount = this.viewModel.getCategoriesCount();
+					for (int i = 0; i < categoriesCount; i++)
+						categoriesModel.addElement(this.viewModel.getCategoryAt(i).getName());
+					this.categoriesComboBox.setModel(categoriesModel);
+				})
+		);
+	}
+	
 	public JPanel getPanel() {
 		return panel;
 	}
@@ -92,6 +103,5 @@ public class CostsView implements ActionListener {
 			this.descriptionTextField.setText("");
 			this.amountTextField.setText("");
 		}
-		
 	}
 }

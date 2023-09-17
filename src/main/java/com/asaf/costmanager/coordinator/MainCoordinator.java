@@ -39,6 +39,10 @@ public class MainCoordinator implements Coordinator {
 	private final CompositeDisposable compositeDisposable;
 	private final ArrayList<Coordinator> coordinators;
 	
+	private final CategoriesViewModel categoriesViewModel;
+	private final CostsViewModel costsViewModel;
+	private final ReportsViewModel reportsViewModel;
+	
 	public MainCoordinator() {
 		this.coordinators = new ArrayList<>();
 		this.compositeDisposable = new CompositeDisposable();
@@ -46,6 +50,21 @@ public class MainCoordinator implements Coordinator {
 		this.costsService = new CostsDerbyDatabaseTableService(databaseConnectionService);
 		this.currenciesService = new CurrenciesDerbyDatabaseTableService(databaseConnectionService);
 		this.categoriesService = new CategoriesDerbyDatabaseTableService(databaseConnectionService);
+		
+		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
+		IDataAccessObject<Currency> currencyDAO = new DatabaseCurrencyDataAccessObject(this.currenciesService);
+		IDataAccessObject<Category> categoryDAO = new DatabaseCategoryDataAccessObject(this.categoriesService);
+		this.categoriesViewModel = new CategoriesViewModel(categoryDAO);
+		this.costsViewModel = new CostsViewModel(costsDAO, currencyDAO, categoryDAO);
+		this.reportsViewModel = new ReportsViewModel(costsDAO);
+		
+		this.compositeDisposable.add(
+			this.categoriesViewModel
+				.updateCategoryObservable()
+				.subscribe((databaseEvent) -> {
+					this.costsViewModel.updateCategories();
+				})
+		);
 	}
 	
 	@Override
@@ -78,25 +97,17 @@ public class MainCoordinator implements Coordinator {
 	
 	private void showReportsView() {
 		if (this.mainView == null) return;
-		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
-		ReportsViewModel viewModel = new ReportsViewModel(costsDAO);
-		this.mainView.activateReportsView(viewModel);
+		this.mainView.activateReportsView(this.reportsViewModel);
 	}
 	
 	private void showCostsView() {
 		if (this.mainView == null) return;
-		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
-		IDataAccessObject<Currency> currencyDAO = new DatabaseCurrencyDataAccessObject(this.currenciesService);
-		IDataAccessObject<Category> categoryDAO = new DatabaseCategoryDataAccessObject(this.categoriesService);
-		CostsViewModel costsViewModel = new CostsViewModel(costsDAO, currencyDAO, categoryDAO);
-		this.mainView.activateCostsView(costsViewModel);
+		this.mainView.activateCostsView(this.costsViewModel);
 	}
 	
 	private void showCategoriesView() {
 		if (this.mainView == null) return;
-		IDataAccessObject<Category> categoryDAO = new DatabaseCategoryDataAccessObject(this.categoriesService);
-		CategoriesViewModel categoriesViewModel = new CategoriesViewModel(categoryDAO);
-		this.mainView.activateCategoriesView(categoriesViewModel);
+		this.mainView.activateCategoriesView(this.categoriesViewModel);
 	}
 	
 	private void resetDatabase() {
