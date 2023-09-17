@@ -10,11 +10,11 @@ public class ReportsView {
 	private final ReportsViewModel viewModel;
 	
 	private JPanel panel;
-	private JTable reportsTable;
 	private JTextField yearTextField;
 	private JTextField monthTextField;
 	private JTextField dayTextField;
 	private JButton submitButton;
+	private JTable reportsTable;
 	
 	public ReportsView(ReportsViewModel viewModel) {
 		this.viewModel = viewModel;
