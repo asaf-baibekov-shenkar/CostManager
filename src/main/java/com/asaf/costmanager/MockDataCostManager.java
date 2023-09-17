@@ -4,6 +4,8 @@ import com.asaf.costmanager.exceptions.CostManagerException;
 import com.asaf.costmanager.models.Category;
 import com.asaf.costmanager.models.Cost;
 import com.asaf.costmanager.models.Currency;
+import com.asaf.costmanager.services.database_table_service.exceptions.DatabaseCostManagerException;
+import com.asaf.costmanager.services.database_table_service.exceptions.DatabaseTableErrorType;
 import com.asaf.costmanager.services.database_table_service.interfaces.IDatabaseTableService;
 
 import java.time.LocalDate;
@@ -47,20 +49,25 @@ public class MockDataCostManager {
 	 */
 	public void initDatabase() throws CostManagerException {
 		this.categoryTableService.createTableIfNotExist();
-		this.currencyTableService.createTableIfNotExist();
+		try {
+			this.currencyTableService.createTable();
+			List<Currency> currencies = Arrays.asList(
+					new Currency("ILS", "₪"),
+					new Currency("USD", "$"),
+					new Currency("EUR", "€"),
+					new Currency("GBP", "£"),
+					new Currency("JPY", "¥"),
+					new Currency("PLN", "zł"),
+					new Currency("RUB", "₽")
+			);
+			for (Currency currency : currencies)
+				this.currencyTableService.insertRecord(currency);
+		} catch (CostManagerException e) {
+			if (e instanceof DatabaseCostManagerException databaseCostManagerException)
+				if (databaseCostManagerException.getErrorType() != DatabaseTableErrorType.TABLE_ALREADY_EXISTS)
+					throw e;
+		}
 		this.costTableService.createTableIfNotExist();
-		
-		List<Currency> currencies = Arrays.asList(
-			new Currency("ILS", "₪"),
-			new Currency("USD", "$"),
-			new Currency("EUR", "€"),
-			new Currency("GBP", "£"),
-			new Currency("JPY", "¥"),
-			new Currency("PLN", "zł"),
-			new Currency("RUB", "₽")
-		);
-		for (Currency currency : currencies)
-			this.currencyTableService.insertRecord(currency);
 	}
 	
 	/**
