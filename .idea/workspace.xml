@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="save new cost">
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="remove topView field">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -482,14 +481,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694942331148</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="remove topView field">
+      <option name="closed" value="true" />
+      <created>1694942442097</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1694942442097</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="clean main function" />
     <MESSAGE value="install RxJava" />
     <MESSAGE value="handle locale and orientation" />
     <MESSAGE value="activate content view when NavigationType is activated" />
@@ -514,7 +520,8 @@
     <MESSAGE value="build currency model and table and costs view model, show data on combo boxes" />
     <MESSAGE value="amountTextField will allow only numeric characters" />
     <MESSAGE value="save new cost" />
-    <option name="LAST_COMMIT_MESSAGE" value="save new cost" />
+    <MESSAGE value="remove topView field" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove topView field" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
