@@ -10,7 +10,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="c5249" binding="topView" layout-manager="GridBagLayout">
+      <grid id="c5249" layout-manager="GridBagLayout">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag top="60" left="60" bottom="22" right="60" weightx="1.0" weighty="0.05"/>
