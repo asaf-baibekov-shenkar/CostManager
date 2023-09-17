@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="update the reports view for changes in the cost view">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/views/ReportsView.java" afterDir="false" />
+    <list default="true" id="9b41c8aa-819e-4ee3-99b0-f74e62a76efd" name="Changes" comment="filter costs by date">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/coordinator/MainCoordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asaf/costmanager/view_models/CostsViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,14 +113,6 @@
       <workItem from="1694586785400" duration="22400000" />
       <workItem from="1694803399054" duration="848000" />
       <workItem from="1694804258886" duration="5946000" />
-    </task>
-    <task id="LOCAL-00006" summary="create database, models and communications">
-      <option name="closed" value="true" />
-      <created>1694165744530</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1694165744530</updated>
     </task>
     <task id="LOCAL-00007" summary="rename the Cost property sum to total_cost">
       <option name="closed" value="true" />
@@ -504,14 +498,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694961061138</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="filter costs by date">
+      <option name="closed" value="true" />
+      <created>1694961152394</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1694961152394</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="build the top title of the top panel" />
     <MESSAGE value="add components to the top view of the ReportsView" />
     <MESSAGE value="separate localization files" />
     <MESSAGE value="fix top view layout in ReportsView" />
@@ -536,7 +537,8 @@
     <MESSAGE value="show costs on the ReportsView" />
     <MESSAGE value="update the cost view for changes in the categories table" />
     <MESSAGE value="update the reports view for changes in the cost view" />
-    <option name="LAST_COMMIT_MESSAGE" value="update the reports view for changes in the cost view" />
+    <MESSAGE value="filter costs by date" />
+    <option name="LAST_COMMIT_MESSAGE" value="filter costs by date" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

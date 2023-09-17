@@ -64,16 +64,12 @@ public class MainCoordinator implements Coordinator {
 		this.compositeDisposable.add(
 			this.categoriesViewModel
 				.updateCategoryObservable()
-				.subscribe((databaseEvent) -> {
-					this.costsViewModel.updateCategories();
-				})
+				.subscribe((databaseEvent) -> this.costsViewModel.updateCategories())
 		);
 		this.compositeDisposable.add(
 			this.costsViewModel
 				.getCostsObservable()
-				.subscribe((costs) -> {
-					this.reportsViewModel.updateCostsReport(null, null, null);
-				})
+				.subscribe((costs) -> this.reportsViewModel.updateCostsReport(null, null, null))
 		);
 	}
 	

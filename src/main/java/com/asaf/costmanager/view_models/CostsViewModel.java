@@ -15,10 +15,9 @@ import java.util.List;
 public class CostsViewModel {
 	
 	private final IDataAccessObject<Cost> costsDOA;
-	private final IDataAccessObject<Currency> currenciesDOA;
 	private final IDataAccessObject<Category> categoriesDOA;
 	
-	private List<Currency> currencies;
+	private final List<Currency> currencies;
 	
 	private final BehaviorSubject<List<Category>> categoriesBehaviorSubject;
 	private final PublishSubject<List<Cost>> costsPublishSubject;
@@ -29,9 +28,8 @@ public class CostsViewModel {
 		IDataAccessObject<Category> categoriesDOA
 	) {
 		this.costsDOA = costsDOA;
-		this.currenciesDOA = currenciesDOA;
 		this.categoriesDOA = categoriesDOA;
-		this.currencies = this.currenciesDOA.readAll();
+		this.currencies = currenciesDOA.readAll();
 		this.categoriesBehaviorSubject = BehaviorSubject.create();
 		this.costsPublishSubject = PublishSubject.create();
 		this.updateCategories();
