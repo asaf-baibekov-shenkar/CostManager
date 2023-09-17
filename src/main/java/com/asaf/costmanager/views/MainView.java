@@ -3,6 +3,7 @@ package com.asaf.costmanager.views;
 import com.asaf.costmanager.view_models.CategoriesViewModel;
 import com.asaf.costmanager.view_models.CostsViewModel;
 import com.asaf.costmanager.view_models.MainViewModel;
+import com.asaf.costmanager.view_models.ReportsViewModel;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalButtonUI;
@@ -104,11 +105,11 @@ public class MainView implements ActionListener {
 		}
 	}
 	
-	public void activateReportsView() {
+	public void activateReportsView(ReportsViewModel viewModel) {
 		this.activateButton(MainViewModel.NavigationType.Reports);
 		this.contentView.removeAll();
 		if (this.reportsView == null)
-			this.reportsView = new ReportsView();
+			this.reportsView = new ReportsView(viewModel);
 		this.contentView.add(this.reportsView.getPanel());
 		this.contentView.revalidate();
 		this.contentView.repaint();

@@ -1,9 +1,14 @@
 package com.asaf.costmanager.views;
 
+import com.asaf.costmanager.view_models.ReportsViewModel;
+
 import javax.swing.*;
 import java.util.Arrays;
 
 public class ReportsView {
+	
+	private final ReportsViewModel viewModel;
+	
 	private JPanel panel;
 	private JTable reportsTable;
 	private JTextField yearTextField;
@@ -11,7 +16,9 @@ public class ReportsView {
 	private JTextField dayTextField;
 	private JButton submitButton;
 	
-	public ReportsView() {
+	public ReportsView(ReportsViewModel viewModel) {
+		this.viewModel = viewModel;
+		
 		this.setupViews();
 		this.setupListeners();
 	}

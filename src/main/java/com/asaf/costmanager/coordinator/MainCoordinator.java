@@ -18,6 +18,7 @@ import com.asaf.costmanager.services.database_table_service.interfaces.IDatabase
 import com.asaf.costmanager.view_models.CategoriesViewModel;
 import com.asaf.costmanager.view_models.CostsViewModel;
 import com.asaf.costmanager.view_models.MainViewModel;
+import com.asaf.costmanager.view_models.ReportsViewModel;
 import com.asaf.costmanager.views.MainView;
 import io.reactivex.rxjava3.annotations.Nullable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -77,7 +78,9 @@ public class MainCoordinator implements Coordinator {
 	
 	private void showReportsView() {
 		if (this.mainView == null) return;
-		this.mainView.activateReportsView();
+		IDataAccessObject<Cost> costsDAO = new DatabaseCostDataAccessObject(this.costsService);
+		ReportsViewModel viewModel = new ReportsViewModel(costsDAO);
+		this.mainView.activateReportsView(viewModel);
 	}
 	
 	private void showCostsView() {
